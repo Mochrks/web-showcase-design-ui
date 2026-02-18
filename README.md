@@ -1,36 +1,73 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<h1 align="center">Modern UI Showcase Platform</h1>
 
-## Getting Started
+<p align="center">
+  <img src="https://img.shields.io/badge/Next.js-15.1.6-black" alt="Next.js Version" />
+  <img src="https://img.shields.io/badge/React-19.0.0-61DAFB" alt="React Version" />
+  <img src="https://img.shields.io/badge/TypeScript-5.0.0-3178C6" alt="TypeScript Version" />
+  <img src="https://img.shields.io/badge/TailwindCSS-v4.0-38B2AC" alt="TailwindCSS Integration" />
+  <img src="https://img.shields.io/badge/ShadCN-UI-000000" alt="ShadCN UI Integration" />
+  <img src="https://img.shields.io/badge/Framer_Motion-v12.0-FF00C1" alt="Framer Motion" />
+</p>
 
-First, run the development server:
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=nextjs,react,typescript,tailwind,framer,threejs" alt="Tech Stack Icons" />
+</p>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Overview
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**Modern UI Showcase** is a premium, feature-rich platform designed to showcase high-quality web design templates and UI components. This platform allows developers and designers to explore a wide variety of design systems—from **Neo-Brutalism** and **Glassmorphism** to **Cyberpunk** and **Minimalist** aesthetics. 
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Built with the latest web technologies including **Next.js 15**, **React 19**, and **Tailwind CSS v4**, it provides a seamless experience with smooth animations powered by **GSAP** and **Lenis Scroll**, and a robust **template generator system** that allows users to download production-ready code directly.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Features
 
-## Learn More
+- **40+ Premium Templates**: A diverse collection of UI styles across various categories (Saas, Fintech, Gaming, etc.).
+- **High-Fidelity Live Demos**: Interactive previews for every template with context-specific content and layouts.
+- **Instant Project Generator**: Export templates as complete Next.js or React projects (bundled as ZIP).
+- **Theme-Specific Card Previews**: Custom-rendered browser mockups in the gallery that reflect the template's unique design language.
+- **Smooth Interaction System**: Ultra-smooth scrolling and micro-animations using GSAP and Lenis.
+- **Comprehensive UI Library**: Integrated with a refined version of ShadCN UI components.
 
-To learn more about Next.js, take a look at the following resources:
+## Tech Stack
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Framework**: Next.js 15.1.6 (App Router)
+- **Library**: React 19.2.3
+- **Styling**: Tailwind CSS v4.0 & CSS Modules
+- **Animations**: Framer Motion 12 & GSAP
+- **Components**: ShadCN / UI (Radix UI)
+- **Utilities**: JSZip, FileSaver (for download generation), Lucide React
+- **Smooth Scroll**: Lenis
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Setup & Installation
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Clone the repository**
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+    ```bash
+    git clone https://github.com/mochrks/web-showcase.git
+    cd web-showcase
+    ```
+
+- **Install dependencies**
+
+    ```bash
+    npm install
+    ```
+
+- **Run the development server**
+
+    ```bash
+    npm run dev
+    ```
+
+- The application will be running on [http://localhost:3000](http://localhost:3000).
+
+
+## Connect with me:
+[![GitHub](https://img.shields.io/badge/GitHub-333?style=for-the-badge&logo=github&logoColor=white)](https://github.com/mochrks)
+[![YouTube](https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtube.com/@Gdvisuel)
+[![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://instagram.com/mochrks)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/mochrks)
+[![Behance](https://img.shields.io/badge/Behance-1769FF?style=for-the-badge&logo=behance&logoColor=white)](https://behance.net/mochrks)
+[![Dribbble](https://img.shields.io/badge/Dribbble-EA4C89?style=for-the-badge&logo=dribbble&logoColor=white)](https://dribbble.com/mochrks)

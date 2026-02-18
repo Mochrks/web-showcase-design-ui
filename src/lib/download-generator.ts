@@ -21,6 +21,14 @@ import {
   generateToasterComponent,
   generateUseToastHook,
 } from "./ui-components-generator-2";
+import {
+  generateTableComponent,
+  generateSkeletonComponent,
+  generatePopoverComponent,
+  generateBreadcrumbComponent,
+  generatePaginationComponent,
+  generateProgressComponent,
+} from "./ui-components-generator-3";
 
 export interface DownloadStructure {
   name: string;
@@ -387,7 +395,7 @@ function generateNextJsStructure(template: Template, themeConfig: ThemeConfig) {
   return {
     // App directory
     "src/app/layout.tsx": generateNextLayout(template),
-    "src/app/page.tsx": generateNextHomePage(template),
+    "src/app/page.tsx": generateNextHomePage(),
     "src/app/globals.css": themeConfig.cssVariables,
     
     // Components
@@ -421,6 +429,12 @@ function generateNextJsStructure(template: Template, themeConfig: ThemeConfig) {
     "src/components/ui/toaster.tsx": generateToasterComponent(),
     "src/components/ui/tooltip.tsx": generateTooltipComponent(),
     "src/components/ui/use-toast.ts": generateUseToastHook(),
+    "src/components/ui/table.tsx": generateTableComponent(),
+    "src/components/ui/skeleton.tsx": generateSkeletonComponent(),
+    "src/components/ui/popover.tsx": generatePopoverComponent(),
+    "src/components/ui/breadcrumb.tsx": generateBreadcrumbComponent(),
+    "src/components/ui/pagination.tsx": generatePaginationComponent(),
+    "src/components/ui/progress.tsx": generateProgressComponent(),
     
     // Lib
     "src/lib/utils.ts": generateUtils(),
@@ -439,7 +453,7 @@ function generateNextJsStructure(template: Template, themeConfig: ThemeConfig) {
 function generateReactStructure(template: Template, themeConfig: ThemeConfig) {
   return {
     // Main files
-    "src/App.tsx": generateReactApp(template),
+    "src/App.tsx": generateReactApp(),
     "src/main.tsx": generateReactMain(),
     "src/index.css": themeConfig.cssVariables,
     "index.html": generateIndexHTML(template),
@@ -475,6 +489,12 @@ function generateReactStructure(template: Template, themeConfig: ThemeConfig) {
     "src/components/ui/toaster.tsx": generateToasterComponent(),
     "src/components/ui/tooltip.tsx": generateTooltipComponent(),
     "src/components/ui/use-toast.ts": generateUseToastHook(),
+    "src/components/ui/table.tsx": generateTableComponent(),
+    "src/components/ui/skeleton.tsx": generateSkeletonComponent(),
+    "src/components/ui/popover.tsx": generatePopoverComponent(),
+    "src/components/ui/breadcrumb.tsx": generateBreadcrumbComponent(),
+    "src/components/ui/pagination.tsx": generatePaginationComponent(),
+    "src/components/ui/progress.tsx": generateProgressComponent(),
     
     // Lib
     "src/lib/utils.ts": generateUtils(),
@@ -514,7 +534,7 @@ export default function RootLayout({
 }`;
 }
 
-function generateNextHomePage(template: Template): string {
+function generateNextHomePage(): string {
   return `import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { Hero } from "@/components/sections/hero";
@@ -536,7 +556,7 @@ export default function Home() {
 }`;
 }
 
-function generateReactApp(template: Template): string {
+function generateReactApp(): string {
   return `import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { Hero } from "@/components/sections/hero";

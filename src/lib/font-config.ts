@@ -106,6 +106,106 @@ export const templateFonts: Record<string, {
     secondary: "'Rajdhani', sans-serif",
     googleFontsUrl: "https://fonts.googleapis.com/css2?family=Teko:wght@400;600;700&family=Rajdhani:wght@400;600;700&display=swap"
   },
+  "health-wellness": {
+    primary: "'Outfit', sans-serif",
+    secondary: "'Inter', sans-serif",
+    googleFontsUrl: "https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;900&family=Inter:wght@400;600&display=swap"
+  },
+  "education-learning": {
+    primary: "'Merriweather', serif",
+    secondary: "'Source Sans Pro', sans-serif",
+    googleFontsUrl: "https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Source+Sans+Pro:wght@400;600&display=swap"
+  },
+  "real-estate-modern": {
+    primary: "'Montserrat', sans-serif",
+    secondary: "'Lato', sans-serif",
+    googleFontsUrl: "https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Lato:wght@300;400;700&display=swap"
+  },
+  "architect-portfolio": {
+    primary: "'Cormorant Garamond', serif",
+    secondary: "'Montserrat', sans-serif",
+    googleFontsUrl: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@300;400;600&display=swap"
+  },
+  "fashion-boutique": {
+    primary: "'Playfair Display', serif",
+    secondary: "'Jost', sans-serif",
+    googleFontsUrl: "https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Jost:wght@300;400;500;600&display=swap"
+  },
+  "coffee-shop-cozy": {
+    primary: "'Josefin Sans', sans-serif",
+    secondary: "'Lora', serif",
+    googleFontsUrl: "https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600;700&family=Lora:wght@400;500;600&display=swap"
+  },
+  "photography-dark": {
+    primary: "'Syncopate', sans-serif",
+    secondary: "'Inter', sans-serif",
+    googleFontsUrl: "https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Inter:wght@300;400&display=swap"
+  },
+  "crypto-dashboard": {
+    primary: "'Sora', sans-serif",
+    secondary: "'JetBrains Mono', monospace",
+    googleFontsUrl: "https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap"
+  },
+  "travel-explorer": {
+    primary: "'Work Sans', sans-serif",
+    secondary: "'Roboto', sans-serif",
+    googleFontsUrl: "https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;700;900&family=Roboto:wght@400;500&display=swap"
+  },
+  "law-firm-professional": {
+    primary: "'Cinzel', serif",
+    secondary: "'Libre Baskerville', serif",
+    googleFontsUrl: "https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Libre+Baskerville:wght@400;700&display=swap"
+  },
+  "music-studio-pro": {
+    primary: "'Russo One', sans-serif",
+    secondary: "'Inter', sans-serif",
+    googleFontsUrl: "https://fonts.googleapis.com/css2?family=Russo+One&family=Inter:wght@400;600&display=swap"
+  },
+  "non-profit-impact": {
+    primary: "'Fredoka', sans-serif",
+    secondary: "'Quicksand', sans-serif",
+    googleFontsUrl: "https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Quicksand:wght@400;500;600&display=swap"
+  },
+  "ecommerce-modern": {
+    primary: "'Poppins', sans-serif",
+    secondary: "'Inter', sans-serif",
+    googleFontsUrl: "https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&family=Inter:wght@400;600&display=swap"
+  },
+  "fitness-tracker": {
+    primary: "'Anton', sans-serif",
+    secondary: "'Barlow', sans-serif",
+    googleFontsUrl: "https://fonts.googleapis.com/css2?family=Anton&family=Barlow:wght@400;600;700;900&display=swap"
+  },
+  "ai-saas-platform": {
+    primary: "'Space Grotesk', sans-serif",
+    secondary: "'Fira Code', monospace",
+    googleFontsUrl: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Fira+Code:wght@400;600&display=swap"
+  },
+  "news-editorial": {
+    primary: "'Lora', serif",
+    secondary: "'Open Sans', sans-serif",
+    googleFontsUrl: "https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Open+Sans:wght@400;600;700&display=swap"
+  },
+  "restaurant-premium": {
+    primary: "'Prata', serif",
+    secondary: "'Montserrat', sans-serif",
+    googleFontsUrl: "https://fonts.googleapis.com/css2?family=Prata&family=Montserrat:wght@300;400;600&display=swap"
+  },
+  "productivity-tool": {
+    primary: "'Manrope', sans-serif",
+    secondary: "'Inter', sans-serif",
+    googleFontsUrl: "https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Inter:wght@400;500&display=swap"
+  },
+  "art-gallery": {
+    primary: "'Tenor Sans', sans-serif",
+    secondary: "'Montserrat', sans-serif",
+    googleFontsUrl: "https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Montserrat:wght@300;400;500&display=swap"
+  },
+  "gaming-news": {
+    primary: "'Oxanium', sans-serif",
+    secondary: "'Inter', sans-serif",
+    googleFontsUrl: "https://fonts.googleapis.com/css2?family=Oxanium:wght@400;700;900&family=Inter:wght@400;600&display=swap"
+  },
 };
 
 // Generate font CSS untuk template

@@ -42,7 +42,7 @@ export function TemplateGrid() {
                             </span>
                         </h2>
                         <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
-                            Choose from 20 professionally designed UI templates, each with unique
+                            Choose from 40+ professionally designed UI templates, each with unique
                             styling and complete component libraries
                         </p>
                     </motion.div>

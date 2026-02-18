@@ -47,6 +47,11 @@ export function TemplatePreview({ template }: TemplatePreviewProps) {
         "tech-dashboard": <TechDashboardPreview />,
         "bold-typography": <BoldTypographyPreview />,
         "gaming-theme": <GamingPreview />,
+        "health-wellness": <HealthWellnessPreview />,
+        "education-learning": <EducationLearningPreview />,
+        "architect-portfolio": <ArchitectPortfolioPreview />,
+        "coffee-shop-cozy": <CoffeeShopCozyPreview />,
+        "crypto-dashboard": <CryptoDashboardPreview />,
     };
 
     return (
@@ -424,7 +429,7 @@ function Retro80sPreview() {
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                 {[1, 2, 3, 4].map(i => (
                     <div key={`retro-item-${i}`} className="bg-slate-800/80 border-2 border-purple-500 p-6 skew-x-[-5deg]">
-                        <div className="text-pink-500 font-mono mb-2">00{i} // Data Stream</div>
+                        <div className="text-pink-500 font-mono mb-2">00{i} Data Stream</div>
                         <h3 className="text-white font-bold text-lg mb-1">DATA TYPE</h3>
                         <div className="h-1 bg-gradient-to-r from-pink-500 to-cyan-500" />
                     </div>
@@ -863,6 +868,263 @@ function GamingPreview() {
                             <div className="text-2xl font-black italic">{item.value}</div>
                         </div>
                     ))}
+                </div>
+            </div>
+        </div>
+    );
+}
+
+// Health & Wellness Preview (ID 21)
+function HealthWellnessPreview() {
+    return (
+        <div className="space-y-12 p-8 bg-[#F0F9FF]">
+            {/* Hero */}
+            <div className="flex flex-col md:flex-row items-center gap-12 max-w-6xl mx-auto">
+                <div className="flex-1 space-y-6">
+                    <Badge className="bg-sky-100 text-sky-700 hover:bg-sky-200 border-0 px-4 py-1">Welcome to Serenity</Badge>
+                    <h1 className="text-6xl font-bold text-slate-900 leading-tight">Your Journey to <span className="text-sky-500">Holistic Health</span> Starts Here.</h1>
+                    <p className="text-lg text-slate-600">Professional healthcare and wellness services tailored to your individual needs.</p>
+                    <div className="flex gap-4">
+                        <Button className="bg-sky-600 hover:bg-sky-700 text-white rounded-full px-8 py-6 h-auto">Book Appointment</Button>
+                        <Button variant="outline" className="border-sky-200 text-sky-700 rounded-full px-8 py-6 h-auto">Our Services</Button>
+                    </div>
+                </div>
+                <div className="flex-1 h-[400px] bg-sky-200/50 rounded-[4rem] relative overflow-hidden shadow-inner">
+                    <div className="absolute inset-0 flex items-center justify-center opacity-10 scale-[5]">🧘‍♀️</div>
+                </div>
+            </div>
+
+            {/* Services */}
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-6xl mx-auto">
+                {["Therapy", "Nutrition", "Yoga", "Checkup"].map((s, i) => (
+                    <Card key={i} className="border-0 shadow-sm hover:shadow-xl transition-all rounded-3xl p-2 bg-white">
+                        <CardContent className="p-6 text-center space-y-3">
+                            <div className="w-12 h-12 bg-sky-100 rounded-2xl mx-auto flex items-center justify-center">
+                                <Heart className="w-6 h-6 text-sky-600" />
+                            </div>
+                            <h3 className="font-bold text-lg">{s}</h3>
+                            <p className="text-sm text-slate-500">Personalized care plans.</p>
+                        </CardContent>
+                    </Card>
+                ))}
+            </div>
+        </div>
+    );
+}
+
+// Education Learning Preview (ID 22)
+function EducationLearningPreview() {
+    return (
+        <div className="space-y-12 p-8 bg-white">
+            {/* Navigation / Hero */}
+            <div className="bg-[#7C3AED] rounded-[3rem] p-12 text-white relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-[80px]" />
+                <div className="relative z-10 max-w-3xl">
+                    <h1 className="text-6xl font-bold mb-6">Master New Skills <br />with Expert Courses.</h1>
+                    <p className="text-xl opacity-90 mb-8">Join over 10,000 students learning from top industry professionals world wide.</p>
+                    <div className="flex flex-wrap gap-4">
+                        <Input className="max-w-xs bg-white text-slate-900 h-14 rounded-2xl" placeholder="Search courses..." />
+                        <Button className="bg-amber-400 hover:bg-amber-500 text-indigo-950 font-bold h-14 px-8 rounded-2xl shadow-lg border-0">Find Course</Button>
+                    </div>
+                </div>
+            </div>
+
+            {/* Popular Courses */}
+            <div className="space-y-8 max-w-6xl mx-auto">
+                <div className="flex justify-between items-end">
+                    <h2 className="text-3xl font-bold text-indigo-950">Popular Courses</h2>
+                    <Button variant="link" className="text-indigo-600 font-bold">See All Courses</Button>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    {[
+                        { title: "Web Design Mastery", price: "$49", rating: "4.9" },
+                        { title: "AI Fundamentals", price: "$59", rating: "4.8" },
+                        { title: "Business Growth", price: "$39", rating: "4.7" }
+                    ].map((course, i) => (
+                        <Card key={i} className="rounded-3xl border-slate-100 overflow-hidden group cursor-pointer hover:shadow-2xl transition-all">
+                            <div className="aspect-video bg-indigo-50 group-hover:bg-indigo-100 transition-colors" />
+                            <CardContent className="p-6 space-y-4">
+                                <div className="flex justify-between items-center text-sm font-bold text-amber-600">
+                                    <span>Design</span>
+                                    <span className="flex items-center gap-1"><Star className="w-3.5 h-3.5 fill-current" /> {course.rating}</span>
+                                </div>
+                                <h3 className="text-xl font-bold text-indigo-950">{course.title}</h3>
+                                <div className="pt-4 border-t flex justify-between items-center">
+                                    <span className="text-2xl font-black text-indigo-600">{course.price}</span>
+                                    <Button size="sm" className="rounded-xl bg-indigo-950">Enroll Now</Button>
+                                </div>
+                            </CardContent>
+                        </Card>
+                    ))}
+                </div>
+            </div>
+        </div>
+    );
+}
+
+// Architect Portfolio Preview (ID 24)
+function ArchitectPortfolioPreview() {
+    return (
+        <div className="space-y-0 p-0 bg-[#FAFAFA] font-sans">
+            <div className="min-h-screen flex flex-col">
+                <header className="px-12 py-8 flex justify-between items-center border-b border-black/5">
+                    <div className="text-2xl font-black tracking-tighter">ARCHI_STUDIO</div>
+                    <nav className="flex gap-12 text-xs font-bold uppercase tracking-widest">
+                        <span>Projects</span>
+                        <span>Approach</span>
+                        <span>Studio</span>
+                        <span>Contact</span>
+                    </nav>
+                </header>
+                <div className="flex-1 flex overflow-hidden">
+                    <div className="w-1/2 p-24 flex flex-col justify-center space-y-12">
+                        <h1 className="text-8xl font-bold tracking-tighter leading-none text-[#171717]">
+                            Space <br /> Refined.
+                        </h1>
+                        <p className="text-xl text-neutral-400 max-w-md leading-relaxed">
+                            Creating timeless structures that harmonize with their surroundings and enhance the human experience.
+                        </p>
+                        <div className="pt-8">
+                            <Button className="bg-[#171717] hover:bg-black text-white px-12 py-8 rounded-none text-sm font-bold uppercase tracking-widest h-auto">
+                                View Portfolio
+                            </Button>
+                        </div>
+                    </div>
+                    <div className="w-1/2 bg-[#E5E5E5] relative">
+                        <div className="absolute inset-24 border border-black/5" />
+                        <div className="absolute bottom-24 right-24 text-8xl font-black text-white/50">01</div>
+                    </div>
+                </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-black/5 border-b border-black/5">
+                {[
+                    { name: "The Glass House", loc: "Berne, Switzerland" },
+                    { name: "Concrete Oasis", loc: "Oaxaca, Mexico" }
+                ].map((p, i) => (
+                    <div key={i} className="aspect-square bg-white p-16 flex flex-col justify-end group cursor-pointer overflow-hidden transition-all hover:bg-neutral-50">
+                        <h3 className="text-4xl font-bold tracking-tight mb-2 group-hover:-translate-y-2 transition-transform">{p.name}</h3>
+                        <p className="text-neutral-400 font-medium uppercase tracking-widest text-xs">{p.loc}</p>
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
+}
+
+// Coffee Shop Cozy Preview (ID 26)
+function CoffeeShopCozyPreview() {
+    return (
+        <div className="space-y-12 p-8 bg-[#FFFBEB] font-serif">
+            <div className="max-w-4xl mx-auto text-center py-20 border-b border-[#78350F]/10">
+                <span className="text-[#D97706] italic text-2xl mb-4 block">Since 1994</span>
+                <h1 className="text-8xl font-bold text-[#78350F] mb-8">Morning Brew.</h1>
+                <p className="text-2xl text-[#78350F]/60 max-w-2xl mx-auto italic mb-12">
+                    Hand-crafted coffee and cozy vibes in the heart of the city. Join us for a cup.
+                </p>
+                <div className="flex justify-center gap-6 font-sans">
+                    <Button className="bg-[#78350F] hover:bg-[#451A03] text-white px-10 py-7 rounded-full text-lg">Order Pickup</Button>
+                    <Button variant="outline" className="border-[#78350F] text-[#78350F] px-10 py-7 rounded-full text-lg hover:bg-[#FEF3C7]">Find Us</Button>
+                </div>
+            </div>
+
+            <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 py-12">
+                {[
+                    { name: "Espresso", desc: "Bold and intense.", price: "$3.50" },
+                    { name: "Latte", desc: "Smooth and creamy.", price: "$4.50" },
+                    { name: "Pour Over", desc: "Clean and aromatic.", price: "$5.00" }
+                ].map((item, i) => (
+                    <div key={i} className="text-center space-y-4">
+                        <div className="w-24 h-24 bg-[#FEF3C7] rounded-full mx-auto flex items-center justify-center border-2 border-dashed border-[#78350F]/20">
+                            ☕
+                        </div>
+                        <h3 className="text-2xl font-bold text-[#78350F]">{item.name}</h3>
+                        <p className="italic text-[#78350F]/60">{item.desc}</p>
+                        <div className="text-xl font-bold text-[#D97706] font-sans">{item.price}</div>
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
+}
+
+// Crypto Dashboard Preview (ID 28)
+function CryptoDashboardPreview() {
+    return (
+        <div className="space-y-6 p-8 bg-[#020617] text-slate-200 font-mono">
+            {/* Top Bar */}
+            <div className="flex justify-between items-center bg-slate-900/50 border border-slate-800 p-6 rounded-3xl backdrop-blur-xl">
+                <div className="flex items-center gap-8">
+                    <div className="text-xl font-black text-emerald-400">CRYPTO_FLOW</div>
+                    <div className="flex gap-6 text-sm">
+                        <span className="text-emerald-400/80">MARKET: OPEN</span>
+                        <span className="text-slate-500">GAS: 24 Gwei</span>
+                    </div>
+                </div>
+                <div className="flex items-center gap-4">
+                    <div className="px-4 py-2 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 rounded-xl text-sm font-bold">0x4a...3e9f</div>
+                    <Button size="icon" className="rounded-xl bg-slate-800"><Users className="w-4 h-4" /></Button>
+                </div>
+            </div>
+
+            {/* Main Stats */}
+            <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+                <Card className="lg:col-span-3 bg-slate-900 border-slate-800 rounded-3xl p-8 space-y-8">
+                    <div className="flex justify-between items-start">
+                        <div>
+                            <span className="text-slate-500 text-xs font-bold uppercase tracking-widest">Total Portfolio Value</span>
+                            <div className="text-5xl font-black text-white mt-1">$124,562.80 <span className="text-emerald-400 text-lg ml-2">+12.4%</span></div>
+                        </div>
+                        <div className="flex gap-2">
+                            {["1H", "1D", "1W", "1M"].map(t => <Button key={t} variant="ghost" size="sm" className={`rounded-lg ${t === '1D' ? 'bg-emerald-500/10 text-emerald-400' : ''}`}>{t}</Button>)}
+                        </div>
+                    </div>
+                    {/* Chart Visualization */}
+                    <div className="h-48 flex items-end gap-1 px-2 pt-10 border-b border-slate-800">
+                        {[30, 45, 35, 60, 55, 80, 70, 95, 85, 100, 90, 110, 105, 130, 120, 140, 135, 160].map((h, i) => (
+                            <div key={i} className={`flex-1 ${i > 10 ? 'bg-emerald-500' : 'bg-slate-700'} opacity-40 rounded-t-sm`} style={{ height: `${(h / 160) * 100}%` }} />
+                        ))}
+                    </div>
+                    <div className="grid grid-cols-3 gap-8">
+                        {[
+                            { label: "Assets held", val: "14 Tokens" },
+                            { label: "Highest ROI", val: "+450% (PEPE)" },
+                            { label: "Est. Gas Fees", val: "$42.10" }
+                        ].map((stat, i) => (
+                            <div key={i} className="space-y-1">
+                                <div className="text-slate-500 text-[10px] font-bold uppercase">{stat.label}</div>
+                                <div className="text-white font-bold">{stat.val}</div>
+                            </div>
+                        ))}
+                    </div>
+                </Card>
+
+                <div className="space-y-6">
+                    <div className="bg-slate-900 border border-slate-800 rounded-3xl p-6 space-y-4">
+                        <div className="flex justify-between items-center mb-2">
+                            <h3 className="font-bold">Recent Swaps</h3>
+                            <Button variant="link" size="sm" className="text-emerald-400 p-0">View All</Button>
+                        </div>
+                        {[
+                            { from: "ETH", to: "USDC", val: "1.24" },
+                            { from: "BTC", to: "ETH", val: "0.05" },
+                            { from: "SOL", to: "USDC", val: "145.0" }
+                        ].map((tx, i) => (
+                            <div key={i} className="flex items-center justify-between p-3 bg-slate-950/50 rounded-2xl border border-slate-800/50 group hover:border-emerald-500/30 transition-all cursor-pointer">
+                                <div className="flex items-center gap-3">
+                                    <div className="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-xs font-black">?</div>
+                                    <div>
+                                        <div className="text-xs font-bold text-white">{tx.from} → {tx.to}</div>
+                                        <div className="text-[10px] text-slate-500">2 mins ago</div>
+                                    </div>
+                                </div>
+                                <div className="text-emerald-400 font-bold text-xs">{tx.val}</div>
+                            </div>
+                        ))}
+                    </div>
+                    <Button className="w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black h-14 rounded-3xl shadow-[0_0_30px_rgba(16,185,129,0.3)]">
+                        SWAP ASSETS NOW
+                    </Button>
                 </div>
             </div>
         </div>

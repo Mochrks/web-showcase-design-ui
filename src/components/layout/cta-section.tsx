@@ -20,14 +20,14 @@ export function CTASection() {
                     className="max-w-4xl mx-auto text-center"
                 >
                     <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 px-4">
-                        Ready to Build Something{" "}
+                        Ready to Build Your{" "}
                         <span className="text-primary">
-                            Amazing?
+                            Dream App?
                         </span>
                     </h2>
                     <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto px-4">
-                        Start with a professional template and customize it to match your vision.
-                        All templates are free, open-source, and production-ready.
+                        Start with any of our 40+ professional templates and customize it to match your vision.
+                        High-performance, accessibility-first, and production-ready.
                     </p>
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4 px-4">
                         <Button

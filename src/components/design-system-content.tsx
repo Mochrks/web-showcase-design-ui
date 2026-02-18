@@ -12,6 +12,12 @@ import { Separator } from "@/components/ui/separator";
 import { Switch } from "@/components/ui/switch";
 import { Checkbox } from "@/components/ui/checkbox";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
+import { Skeleton } from "@/components/ui/skeleton";
+import { Pagination, PaginationContent, PaginationEllipsis, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from "@/components/ui/pagination";
+import { Progress } from "@/components/ui/progress";
 import { ArrowLeft, Download, AlertCircle } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -498,25 +504,153 @@ export function DesignSystemContent({ template: initialTemplate }: DesignSystemC
                                 </div>
                             </ComponentSection>
 
+                            {/* Table Section */}
+                            <ComponentSection title="Data Tables">
+                                <Card className={styles.card}>
+                                    <Table>
+                                        <TableHeader>
+                                            <TableRow>
+                                                <TableHead className="w-[100px]">Invoice</TableHead>
+                                                <TableHead>Status</TableHead>
+                                                <TableHead>Method</TableHead>
+                                                <TableHead className="text-right">Amount</TableHead>
+                                            </TableRow>
+                                        </TableHeader>
+                                        <TableBody>
+                                            {[
+                                                { id: "INV001", status: "Paid", method: "Credit Card", amount: "$250.00" },
+                                                { id: "INV002", status: "Pending", method: "PayPal", amount: "$150.00" },
+                                                { id: "INV003", status: "Unpaid", method: "Bank Transfer", amount: "$350.00" },
+                                            ].map((invoice) => (
+                                                <TableRow key={invoice.id}>
+                                                    <TableCell className="font-medium">{invoice.id}</TableCell>
+                                                    <TableCell>
+                                                        <Badge variant={invoice.status === "Paid" ? "default" : "secondary"}>
+                                                            {invoice.status}
+                                                        </Badge>
+                                                    </TableCell>
+                                                    <TableCell>{invoice.method}</TableCell>
+                                                    <TableCell className="text-right">{invoice.amount}</TableCell>
+                                                </TableRow>
+                                            ))}
+                                        </TableBody>
+                                    </Table>
+                                </Card>
+                            </ComponentSection>
+
+                            {/* Accordion Section */}
+                            <ComponentSection title="Accordion">
+                                <Accordion type="single" collapsible className="w-full">
+                                    <AccordionItem value="item-1">
+                                        <AccordionTrigger>Is it accessible?</AccordionTrigger>
+                                        <AccordionContent>
+                                            Yes. It adheres to the WAI-ARIA design patterns.
+                                        </AccordionContent>
+                                    </AccordionItem>
+                                    <AccordionItem value="item-2">
+                                        <AccordionTrigger>Can it be customized?</AccordionTrigger>
+                                        <AccordionContent>
+                                            Yes. You can change themes, colors and fonts easily.
+                                        </AccordionContent>
+                                    </AccordionItem>
+                                </Accordion>
+                            </ComponentSection>
+
+                            {/* Breadcrumbs & Pagination */}
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                <ComponentSection title="Breadcrumbs">
+                                    <Breadcrumb>
+                                        <BreadcrumbList>
+                                            <BreadcrumbItem>
+                                                <BreadcrumbLink href="/">Home</BreadcrumbLink>
+                                            </BreadcrumbItem>
+                                            <BreadcrumbSeparator />
+                                            <BreadcrumbItem>
+                                                <BreadcrumbLink href="/templates">Templates</BreadcrumbLink>
+                                            </BreadcrumbItem>
+                                            <BreadcrumbSeparator />
+                                            <BreadcrumbItem>
+                                                <BreadcrumbPage>Current Template</BreadcrumbPage>
+                                            </BreadcrumbItem>
+                                        </BreadcrumbList>
+                                    </Breadcrumb>
+                                </ComponentSection>
+
+                                <ComponentSection title="Pagination">
+                                    <Pagination>
+                                        <PaginationContent>
+                                            <PaginationItem>
+                                                <PaginationPrevious href="#" />
+                                            </PaginationItem>
+                                            <PaginationItem>
+                                                <PaginationLink href="#" isActive>1</PaginationLink>
+                                            </PaginationItem>
+                                            <PaginationItem>
+                                                <PaginationLink href="#">2</PaginationLink>
+                                            </PaginationItem>
+                                            <PaginationItem>
+                                                <PaginationEllipsis />
+                                            </PaginationItem>
+                                            <PaginationItem>
+                                                <PaginationNext href="#" />
+                                            </PaginationItem>
+                                        </PaginationContent>
+                                    </Pagination>
+                                </ComponentSection>
+                            </div>
+
+                            {/* Feedback & Loading */}
+                            <ComponentSection title="Feedback & Loading">
+                                <div className="space-y-6">
+                                    <div className="space-y-2">
+                                        <div className="flex justify-between text-sm">
+                                            <span>Loading Progress</span>
+                                            <span>75%</span>
+                                        </div>
+                                        <Progress value={75} className="h-2" />
+                                    </div>
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <div className="flex items-center space-x-4">
+                                            <Skeleton className="h-12 w-12 rounded-full" />
+                                            <div className="space-y-2">
+                                                <Skeleton className="h-4 w-[250px]" />
+                                                <Skeleton className="h-4 w-[200px]" />
+                                            </div>
+                                        </div>
+                                        <div className="space-y-2">
+                                            <Skeleton className="h-[125px] w-full rounded-xl" />
+                                            <div className="space-y-2">
+                                                <Skeleton className="h-4 w-full" />
+                                                <Skeleton className="h-4 w-3/4" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ComponentSection>
+
                             {/* Complex Components */}
-                            <ComponentSection title="Complex Components">
+                            <ComponentSection title="Advanced Layouts">
                                 <div className="space-y-6">
                                     {/* Stats Grid */}
-                                    <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+                                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                                         {[
-                                            { label: "Total Users", value: "10,234", change: "+12%" },
-                                            { label: "Revenue", value: "$45,231", change: "+8%" },
-                                            { label: "Active Now", value: "573", change: "+23%" },
-                                            { label: "Conversion", value: "24.5%", change: "+4%" },
+                                            { label: "Total Users", value: "10,234", change: "+12%", color: "primary" },
+                                            { label: "Revenue", value: "$45,231", change: "+8%", color: "accent" },
+                                            { label: "Active Now", value: "573", change: "+23%", color: "primary" },
+                                            { label: "Conversion", value: "24.5%", change: "+4%", color: "accent" },
                                         ].map((stat, i) => (
-                                            <Card key={`stat-${i}`} className={styles.card}>
+                                            <Card key={`stat-${i}`} className={`${styles.card} overflow-hidden`}>
+                                                <div className={`h-1 w-full bg-${stat.color}`} />
                                                 <CardContent className="pt-6">
                                                     <div className="space-y-2">
-                                                        <p className="text-sm text-muted-foreground">{stat.label}</p>
-                                                        <p className="text-2xl font-bold">{stat.value}</p>
-                                                        <Badge className={`${styles.badge} text-xs`}>
+                                                        <p className="text-xs uppercase tracking-wider text-muted-foreground font-semibold">{stat.label}</p>
+                                                        <p className="text-2xl md:text-3xl font-bold">{stat.value}</p>
+                                                        <div className="flex items-center text-xs font-medium text-green-500">
+                                                            <svg className="w-3 h-3 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
+                                                            </svg>
                                                             {stat.change}
-                                                        </Badge>
+                                                        </div>
                                                     </div>
                                                 </CardContent>
                                             </Card>
@@ -524,28 +658,50 @@ export function DesignSystemContent({ template: initialTemplate }: DesignSystemC
                                     </div>
 
                                     {/* Feature List */}
-                                    <Card className={styles.card}>
-                                        <CardHeader>
-                                            <CardTitle>Features</CardTitle>
-                                        </CardHeader>
-                                        <CardContent className="space-y-3">
-                                            {[
-                                                "Advanced Analytics Dashboard",
-                                                "Real-time Collaboration",
-                                                "Cloud Storage Integration",
-                                                "API Access & Webhooks",
-                                            ].map((feature, i) => (
-                                                <div key={`feature-${i}`} className="flex items-center space-x-3">
-                                                    <div className="flex-shrink-0 w-5 h-5 rounded-full bg-primary flex items-center justify-center">
-                                                        <svg className="w-3 h-3 text-primary-foreground" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                                                        </svg>
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                        <Card className={styles.card}>
+                                            <CardHeader>
+                                                <CardTitle>Included Features</CardTitle>
+                                            </CardHeader>
+                                            <CardContent className="space-y-3">
+                                                {[
+                                                    "Advanced Analytics Dashboard",
+                                                    "Real-time Collaboration",
+                                                    "Cloud Storage Integration",
+                                                    "API Access & Webhooks",
+                                                    "Custom Domain Support",
+                                                    "Priority Email Support",
+                                                ].map((feature, i) => (
+                                                    <div key={`feature-${i}`} className="flex items-center space-x-3">
+                                                        <div className="flex-shrink-0 w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center">
+                                                            <svg className="w-3 h-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                                            </svg>
+                                                        </div>
+                                                        <span className="text-sm font-medium">{feature}</span>
                                                     </div>
-                                                    <span className="text-sm">{feature}</span>
+                                                ))}
+                                            </CardContent>
+                                        </Card>
+
+                                        <Card className={`${styles.card} bg-primary text-primary-foreground`}>
+                                            <CardHeader>
+                                                <CardTitle>Pro Plan Upgrade</CardTitle>
+                                            </CardHeader>
+                                            <CardContent className="space-y-6">
+                                                <p className="text-primary-foreground/80 text-sm">
+                                                    Unlock every single template and get lifetime updates with our professional license.
+                                                </p>
+                                                <div className="space-y-2">
+                                                    <div className="text-4xl font-bold">$99</div>
+                                                    <p className="text-xs opacity-70 border-t border-primary-foreground/20 pt-2">ONE-TIME PAYMENT • LIFETIME ACCESS</p>
                                                 </div>
-                                            ))}
-                                        </CardContent>
-                                    </Card>
+                                                <Button variant="secondary" className="w-full font-bold">
+                                                    Get Lifetime Access
+                                                </Button>
+                                            </CardContent>
+                                        </Card>
+                                    </div>
                                 </div>
                             </ComponentSection>
                         </motion.div>

@@ -49,7 +49,7 @@ export function HeroSection() {
                         className="inline-flex items-center space-x-2 bg-primary/10 border border-primary/20 rounded-full px-4 py-2 mb-8"
                     >
                         <Sparkles className="w-4 h-4 text-primary" />
-                        <span className="text-sm font-medium">20 Premium UI Templates</span>
+                        <span className="text-sm font-medium">40+ Premium UI Templates</span>
                     </motion.div>
 
                     {/* Main Heading */}
@@ -59,12 +59,12 @@ export function HeroSection() {
                         transition={{ duration: 0.5, delay: 0.1 }}
                         className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight px-4"
                     >
-                        Download Premium{" "}
+                        Experience Next-Gen{" "}
                         <span className="text-muted-foreground">
-                            UI Templates
+                            UI Design
                         </span>
                         <br />
-                        Built with Next.js & React
+                        Crafted for Modern Apps
                     </motion.h1>
 
                     {/* Description */}
@@ -74,9 +74,9 @@ export function HeroSection() {
                         transition={{ duration: 0.5, delay: 0.2 }}
                         className="text-base sm:text-lg md:text-xl text-muted-foreground mb-12 max-w-3xl mx-auto px-4"
                     >
-                        Explore 20 beautifully crafted UI design templates powered by shadcn/ui.
-                        Preview demos, browse design systems, and download ready-to-use boilerplates
-                        for Next.js or React.
+                        Explore 40+ meticulously designed UI templates. From Neo-Brutalism to
+                        Japanese Zen, discover diverse design systems and download high-performance
+                        boilerplates for Next.js and React.
                     </motion.p>
 
                     {/* CTA Buttons */}
@@ -88,26 +88,26 @@ export function HeroSection() {
                     >
                         <Button
                             size="lg"
-                            className="w-full sm:w-auto px-6 sm:px-8 py-5 sm:py-6 text-base sm:text-lg group"
+                            className="w-full sm:w-auto px-6 sm:px-8 py-5 sm:py-6 text-base sm:text-lg group shadow-xl"
                             onClick={() => {
                                 const templatesSection = document.getElementById('templates');
                                 templatesSection?.scrollIntoView({ behavior: 'smooth' });
                             }}
                         >
-                            Browse Templates
+                            Explore Collection
                             <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                         <Button
                             size="lg"
                             variant="outline"
-                            className="w-full sm:w-auto px-6 sm:px-8 py-5 sm:py-6 text-base sm:text-lg border-2"
+                            className="w-full sm:w-auto px-6 sm:px-8 py-5 sm:py-6 text-base sm:text-lg border-2 shadow-sm"
                             onClick={() => {
                                 const templatesSection = document.getElementById('templates');
                                 templatesSection?.scrollIntoView({ behavior: 'smooth' });
                             }}
                         >
                             <Download className="mr-2 w-4 h-4 sm:w-5 sm:h-5" />
-                            Quick Start
+                            Get Started
                         </Button>
                     </motion.div>
 
@@ -120,21 +120,21 @@ export function HeroSection() {
                     >
                         <div className="text-center">
                             <div className="text-3xl sm:text-4xl md:text-5xl font-bold">
-                                20+
+                                40+
                             </div>
-                            <div className="text-xs sm:text-sm text-muted-foreground mt-1">Templates</div>
+                            <div className="text-xs sm:text-sm text-muted-foreground mt-1">Ready Templates</div>
                         </div>
                         <div className="text-center">
                             <div className="text-3xl sm:text-4xl md:text-5xl font-bold">
                                 2
                             </div>
-                            <div className="text-xs sm:text-sm text-muted-foreground mt-1">Frameworks</div>
+                            <div className="text-xs sm:text-sm text-muted-foreground mt-1">Core Frameworks</div>
                         </div>
                         <div className="text-center">
                             <div className="text-3xl sm:text-4xl md:text-5xl font-bold">
-                                100%
+                                60+
                             </div>
-                            <div className="text-xs sm:text-sm text-muted-foreground mt-1">Free</div>
+                            <div className="text-xs sm:text-sm text-muted-foreground mt-1">Components</div>
                         </div>
                     </motion.div>
                 </div>
