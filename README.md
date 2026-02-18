@@ -5,7 +5,6 @@
   <img src="https://img.shields.io/badge/React-19.0.0-61DAFB" alt="React Version" />
   <img src="https://img.shields.io/badge/TypeScript-5.0.0-3178C6" alt="TypeScript Version" />
   <img src="https://img.shields.io/badge/TailwindCSS-v4.0-38B2AC" alt="TailwindCSS Integration" />
-  <img src="https://img.shields.io/badge/ShadCN-UI-000000" alt="ShadCN UI Integration" />
   <img src="https://img.shields.io/badge/Framer_Motion-v12.0-FF00C1" alt="Framer Motion" />
 </p>
 
