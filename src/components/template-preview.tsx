@@ -52,6 +52,22 @@ export function TemplatePreview({ template }: TemplatePreviewProps) {
         "architect-portfolio": <ArchitectPortfolioPreview />,
         "coffee-shop-cozy": <CoffeeShopCozyPreview />,
         "crypto-dashboard": <CryptoDashboardPreview />,
+        // New dedicated previews
+        "real-estate-modern": <RealEstatePreview />,
+        "fashion-boutique": <FashionBoutiquePreview />,
+        "photography-dark": <PhotographyDarkPreview />,
+        "travel-explorer": <TravelExplorerPreview />,
+        "law-firm-professional": <LawFirmPreview />,
+        "music-studio-pro": <MusicStudioPreview />,
+        "non-profit-impact": <NonProfitPreview />,
+        "ecommerce-modern": <EcommercePreview />,
+        "fitness-tracker": <FitnessTrackerPreview />,
+        "ai-saas": <AISaaSPreview />,
+        "news-editorial": <NewsEditorialPreview />,
+        "restaurant-premium": <RestaurantPremiumPreview />,
+        "productivity-tool": <ProductivityToolPreview />,
+        "art-gallery": <ArtGalleryPreview />,
+        "gaming-news": <GamingNewsPreview />,
     };
 
     return (
@@ -1130,3 +1146,786 @@ function CryptoDashboardPreview() {
         </div>
     );
 }
+
+// ─── Real Estate Modern Preview ───────────────────────────────────────────────
+function RealEstatePreview() {
+    return (
+        <div className="space-y-0 bg-white font-sans">
+            {/* Hero */}
+            <div className="relative min-h-[420px] bg-gradient-to-br from-rose-900 to-rose-700 flex items-end p-12 overflow-hidden">
+                <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxjaXJjbGUgY3g9IjIwIiBjeT0iMjAiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xKSIvPjwvZz48L3N2Zz4=')] opacity-40" />
+                <div className="relative z-10 max-w-xl space-y-4">
+                    <Badge className="bg-white/20 text-white border-0 backdrop-blur-sm">🏠 Premier Properties</Badge>
+                    <h1 className="text-6xl font-bold text-white leading-tight">Find Your Dream Home.</h1>
+                    <p className="text-white/80 text-lg">Discover luxury properties and exclusive listings in the most sought-after locations worldwide.</p>
+                    <div className="flex gap-3 pt-2">
+                        <Button className="bg-white text-rose-800 hover:bg-rose-50 font-bold px-8 py-6 rounded-xl">Browse Listings</Button>
+                        <Button className="bg-white/10 border border-white/30 text-white hover:bg-white/20 px-8 py-6 rounded-xl">Contact Agent</Button>
+                    </div>
+                </div>
+            </div>
+
+            {/* Search Bar */}
+            <div className="bg-white border-b px-12 py-6 shadow-sm">
+                <div className="flex gap-4 max-w-4xl mx-auto">
+                    <Input className="flex-1 h-12 rounded-xl border-gray-200" placeholder="Search by location or property type..." />
+                    <Button className="bg-rose-700 hover:bg-rose-800 text-white h-12 px-8 rounded-xl">Search</Button>
+                </div>
+            </div>
+
+            {/* Property Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 p-12 bg-gray-50">
+                {[
+                    { name: "Villa Serenity", loc: "Bali, Indonesia", price: "$1.2M", beds: 4, baths: 3 },
+                    { name: "Skyline Penthouse", loc: "NYC, USA", price: "$3.8M", beds: 3, baths: 2 },
+                    { name: "Coastal Retreat", loc: "Malibu, CA", price: "$2.1M", beds: 5, baths: 4 },
+                ].map((prop, i) => (
+                    <Card key={i} className="overflow-hidden rounded-2xl border-0 shadow-md hover:shadow-xl transition-all group cursor-pointer">
+                        <div className="aspect-video bg-gradient-to-br from-rose-200 to-rose-100 relative">
+                            <div className="absolute top-3 right-3">
+                                <Badge className="bg-rose-700 text-white border-0 text-xs">{prop.price}</Badge>
+                            </div>
+                        </div>
+                        <CardContent className="p-5 space-y-2">
+                            <h3 className="font-bold text-lg text-gray-900 group-hover:text-rose-700 transition-colors">{prop.name}</h3>
+                            <p className="text-gray-500 text-sm">📍 {prop.loc}</p>
+                            <div className="flex gap-4 text-xs text-gray-600 pt-1">
+                                <span>🛏 {prop.beds} beds</span>
+                                <span>🚿 {prop.baths} baths</span>
+                            </div>
+                        </CardContent>
+                    </Card>
+                ))}
+            </div>
+        </div>
+    );
+}
+
+// ─── Fashion Boutique Preview ─────────────────────────────────────────────────
+function FashionBoutiquePreview() {
+    return (
+        <div className="bg-white font-sans">
+            {/* Header */}
+            <div className="flex justify-between items-center px-12 py-6 border-b border-gray-100">
+                <div className="text-3xl font-black tracking-[0.3em] uppercase">AUREL</div>
+                <nav className="hidden md:flex gap-10 text-xs tracking-widest uppercase font-semibold text-gray-500">
+                    <span>Collection</span><span>Lookbook</span><span>About</span><span>Contact</span>
+                </nav>
+                <Button size="sm" variant="outline" className="rounded-none border-black text-xs tracking-widest uppercase">Shop Now</Button>
+            </div>
+
+            {/* Hero Split */}
+            <div className="grid grid-cols-1 md:grid-cols-2 min-h-[500px]">
+                <div className="bg-gray-100 relative overflow-hidden flex items-end p-12">
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                    <div className="relative z-10 text-white">
+                        <span className="text-xs tracking-[0.4em] uppercase opacity-80">New Collection 2026</span>
+                        <h1 className="text-6xl font-black leading-none mt-2">Effortless<br />Luxury.</h1>
+                    </div>
+                </div>
+                <div className="p-16 flex flex-col justify-center space-y-8">
+                    <Badge className="w-fit bg-purple-100 text-purple-700 border-0 rounded-none text-xs tracking-widest uppercase px-4 py-1">Season Highlight</Badge>
+                    <p className="text-2xl font-light text-gray-700 leading-relaxed">
+                        Timeless pieces crafted with the finest materials, designed to move with you through every moment.
+                    </p>
+                    <div className="flex gap-4">
+                        <Button className="bg-black text-white hover:bg-gray-900 rounded-none px-10 py-6 tracking-widest text-xs uppercase font-bold">Explore</Button>
+                        <Button variant="outline" className="border-black rounded-none px-10 py-6 tracking-widest text-xs uppercase font-bold">Lookbook</Button>
+                    </div>
+                    <div className="grid grid-cols-3 gap-6 pt-4 border-t border-gray-100">
+                        {["Sustainable", "Hand-crafted", "Exclusive"].map((v, i) => (
+                            <div key={i} className="text-center">
+                                <div className="text-2xl font-black">✦</div>
+                                <div className="text-xs uppercase tracking-widest text-gray-500 mt-1">{v}</div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+}
+
+// ─── Photography Dark Preview ─────────────────────────────────────────────────
+function PhotographyDarkPreview() {
+    return (
+        <div className="bg-black text-white font-sans">
+            {/* Hero fullscreen */}
+            <div className="relative min-h-[500px] bg-gradient-to-br from-zinc-900 to-zinc-950 flex items-center justify-center overflow-hidden">
+                {/* Simulated image mosaic */}
+                <div className="absolute inset-0 grid grid-cols-4 gap-0.5 opacity-30">
+                    {Array.from({ length: 8 }).map((_, i) => (
+                        <div key={i} className={`bg-zinc-700 ${i % 3 === 0 ? 'col-span-2' : ''}`} />
+                    ))}
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
+                <div className="relative z-10 text-center space-y-6 px-12">
+                    <span className="text-xs tracking-[0.5em] uppercase text-gray-400">Visual Storytelling</span>
+                    <h1 className="text-8xl font-black leading-none bg-gradient-to-b from-white to-gray-400 bg-clip-text text-transparent">
+                        LIGHT<br />&amp; SHADOW
+                    </h1>
+                    <div className="flex justify-center gap-4 pt-4">
+                        <Button className="bg-white text-black hover:bg-gray-200 rounded-none px-10 py-6 font-bold tracking-widest text-xs uppercase">Portfolio</Button>
+                        <Button variant="ghost" className="border border-white/30 text-white hover:bg-white/10 rounded-none px-10 py-6 font-bold tracking-widest text-xs uppercase">Book Session</Button>
+                    </div>
+                </div>
+            </div>
+
+            {/* Gallery grid */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-1 p-1">
+                {[
+                    { h: "row-span-2", label: "Portraits" },
+                    { h: "", label: "Fashion" },
+                    { h: "", label: "Landscape" },
+                    { h: "", label: "Editorial" },
+                    { h: "", label: "Architecture" },
+                ].map((item, i) => (
+                    <div
+                        key={i}
+                        className={`${item.h} bg-zinc-800 aspect-square relative group cursor-pointer overflow-hidden`}
+                    >
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                            <span className="text-xs uppercase tracking-widest font-bold">{item.label}</span>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
+}
+
+// ─── Travel Explorer Preview ──────────────────────────────────────────────────
+function TravelExplorerPreview() {
+    return (
+        <div className="bg-white font-sans space-y-0">
+            {/* Hero */}
+            <div className="relative min-h-[420px] bg-gradient-to-br from-orange-500 to-cyan-500 flex items-center overflow-hidden p-12">
+                <div className="absolute inset-0 opacity-20 mix-blend-overlay" style={{ backgroundImage: "radial-gradient(circle at 30% 70%, #fff 1px, transparent 1px)", backgroundSize: "40px 40px" }} />
+                <div className="relative z-10 max-w-2xl space-y-6">
+                    <Badge className="bg-white/20 text-white border-0 backdrop-blur-sm text-sm">✈️ 200+ Destinations</Badge>
+                    <h1 className="text-7xl font-black text-white leading-tight">Explore<br />The World.</h1>
+                    <p className="text-white/90 text-xl">Discover extraordinary places, handpicked itineraries, and unforgettable experiences.</p>
+                    <div className="flex gap-3">
+                        <Button className="bg-white text-orange-600 hover:bg-orange-50 font-bold px-8 py-6 rounded-2xl shadow-lg">Start Exploring</Button>
+                        <Button className="bg-white/20 border border-white/40 text-white hover:bg-white/30 px-8 py-6 rounded-2xl">View Deals</Button>
+                    </div>
+                </div>
+            </div>
+
+            {/* Destinations */}
+            <div className="p-12 space-y-8 bg-gray-50">
+                <div className="flex justify-between items-center">
+                    <h2 className="text-3xl font-bold text-gray-900">Popular Destinations</h2>
+                    <Button variant="link" className="text-orange-500 font-bold">See All →</Button>
+                </div>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    {[
+                        { name: "Bali", country: "Indonesia", days: "7D", color: "from-orange-400 to-amber-500" },
+                        { name: "Santorini", country: "Greece", days: "5D", color: "from-cyan-400 to-blue-500" },
+                        { name: "Tokyo", country: "Japan", days: "10D", color: "from-pink-400 to-rose-500" },
+                        { name: "Patagonia", country: "Argentina", days: "14D", color: "from-emerald-400 to-teal-500" },
+                    ].map((dest, i) => (
+                        <div key={i} className={`rounded-3xl bg-gradient-to-br ${dest.color} p-6 text-white aspect-square flex flex-col justify-end cursor-pointer hover:scale-[1.03] transition-transform`}>
+                            <div className="text-xs font-bold opacity-80 mb-1">{dest.days}</div>
+                            <div className="text-2xl font-black">{dest.name}</div>
+                            <div className="text-xs opacity-80">{dest.country}</div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
+    );
+}
+
+// ─── Law Firm Professional Preview ─────────────────────────────────────────────
+function LawFirmPreview() {
+    return (
+        <div className="bg-white font-sans space-y-0">
+            {/* Header */}
+            <div className="border-b border-gray-200 px-12 py-5 flex justify-between items-center">
+                <div>
+                    <div className="text-xl font-black tracking-tight text-[#1E3A8A]">HARTWELL & ASSOCIATES</div>
+                    <div className="text-xs tracking-widest uppercase text-gray-400">Attorneys at Law · Since 1978</div>
+                </div>
+                <Button className="bg-[#1E3A8A] hover:bg-blue-900 text-white rounded-sm px-6 py-5 text-sm font-semibold">Free Consultation</Button>
+            </div>
+
+            {/* Hero */}
+            <div className="grid grid-cols-1 md:grid-cols-2 min-h-[380px]">
+                <div className="bg-[#1E3A8A] p-16 flex flex-col justify-center space-y-8">
+                    <div className="w-16 h-1 bg-amber-500" />
+                    <h1 className="text-5xl font-bold text-white leading-tight">Justice. Integrity. Results.</h1>
+                    <p className="text-blue-200 text-lg leading-relaxed">Trusted legal counsel for individuals, families, and businesses for over four decades.</p>
+                    <Button className="w-fit bg-amber-500 hover:bg-amber-600 text-black font-bold px-8 py-5 rounded-sm">Our Practice Areas</Button>
+                </div>
+                <div className="bg-blue-50 p-12 flex flex-col justify-center gap-6">
+                    {["Corporate Law", "Family & Estates", "Criminal Defense", "Real Estate"].map((area, i) => (
+                        <div key={i} className="flex items-center gap-4 p-4 bg-white rounded-lg shadow-sm group hover:shadow-md transition-shadow cursor-pointer border border-gray-100">
+                            <div className="w-2 h-8 bg-amber-500 rounded-full" />
+                            <div>
+                                <div className="font-bold text-gray-900">{area}</div>
+                                <div className="text-xs text-gray-400">Expert representation</div>
+                            </div>
+                            <ArrowRight className="ml-auto w-4 h-4 text-gray-300 group-hover:text-amber-500 transition-colors" />
+                        </div>
+                    ))}
+                </div>
+            </div>
+
+            {/* Stats */}
+            <div className="bg-gray-900 text-white px-12 py-8 grid grid-cols-4 gap-8 text-center">
+                {[["48+", "Years Experience"], ["2,400+", "Cases Won"], ["98%", "Client Satisfaction"], ["24/7", "Support"]].map(([val, label], i) => (
+                    <div key={i}>
+                        <div className="text-3xl font-black text-amber-400">{val}</div>
+                        <div className="text-xs text-gray-400 mt-1 uppercase tracking-widest">{label}</div>
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
+}
+
+// ─── Music Studio Pro Preview ─────────────────────────────────────────────────
+function MusicStudioPreview() {
+    return (
+        <div className="bg-[#111827] text-white font-sans space-y-0 overflow-hidden">
+            {/* Hero */}
+            <div className="relative min-h-[400px] flex items-center p-12 overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-r from-pink-600/30 via-purple-600/20 to-transparent" />
+                <div className="absolute right-0 top-0 w-1/2 h-full bg-gradient-to-l from-pink-900/40 to-transparent" />
+                {/* Visualizer bars */}
+                <div className="absolute right-12 bottom-0 flex items-end gap-1 h-full w-64 opacity-30 pb-0">
+                    {[40, 70, 55, 90, 65, 80, 45, 95, 60, 75, 50, 85, 40, 70, 55].map((h, i) => (
+                        <div key={i} className="flex-1 bg-pink-500 rounded-t-sm" style={{ height: `${h}%` }} />
+                    ))}
+                </div>
+
+                <div className="relative z-10 max-w-2xl space-y-6">
+                    <Badge className="bg-pink-500/20 text-pink-300 border border-pink-500/30">🎵 New Album: Echoes</Badge>
+                    <h1 className="text-7xl font-black leading-none bg-gradient-to-r from-white via-pink-200 to-purple-200 bg-clip-text text-transparent">
+                        SOUND<br />FACTORY
+                    </h1>
+                    <p className="text-gray-400 text-lg">Where music meets innovation. Professional beats, custom mixes, world-class production.</p>
+                    <div className="flex gap-3">
+                        <Button className="bg-gradient-to-r from-pink-500 to-purple-600 hover:opacity-90 text-white px-8 py-6 rounded-2xl font-bold shadow-[0_0_30px_rgba(236,72,153,0.4)]">Listen Now</Button>
+                        <Button variant="ghost" className="border border-white/20 text-white hover:bg-white/10 px-8 py-6 rounded-2xl">Book Studio</Button>
+                    </div>
+                </div>
+            </div>
+
+            {/* Tracks */}
+            <div className="p-8 space-y-3">
+                {[
+                    { title: "Midnight Drive", duration: "3:42", plays: "2.1M" },
+                    { title: "Electric Pulse", duration: "4:15", plays: "1.8M" },
+                    { title: "Neon Feelings", duration: "3:58", plays: "950K" },
+                ].map((track, i) => (
+                    <div key={i} className="flex items-center gap-4 p-4 bg-white/5 rounded-2xl hover:bg-white/10 transition-colors cursor-pointer group border border-white/5">
+                        <div className="w-10 h-10 bg-gradient-to-br from-pink-500 to-purple-600 rounded-xl flex items-center justify-center font-black text-sm">
+                            {i + 1}
+                        </div>
+                        <div className="flex-1">
+                            <div className="font-bold">{track.title}</div>
+                            <div className="text-xs text-gray-500">{track.plays} plays</div>
+                        </div>
+                        <div className="h-8 flex items-end gap-0.5 opacity-50 group-hover:opacity-100 transition-opacity">
+                            {[60, 90, 50, 80, 70].map((h, j) => (
+                                <div key={j} className="w-1 bg-pink-400 rounded-full" style={{ height: `${h}%` }} />
+                            ))}
+                        </div>
+                        <div className="text-xs text-gray-500 font-mono">{track.duration}</div>
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
+}
+
+// ─── Non-Profit Impact Preview ────────────────────────────────────────────────
+function NonProfitPreview() {
+    return (
+        <div className="bg-white font-sans space-y-0">
+            {/* Hero */}
+            <div className="bg-[#DC2626] px-12 py-20 text-white relative overflow-hidden">
+                <div className="absolute right-0 bottom-0 w-72 h-72 bg-white/5 rounded-full translate-x-1/3 translate-y-1/3" />
+                <div className="max-w-2xl space-y-6">
+                    <Badge className="bg-white/20 text-white border-0 text-sm py-1">❤️ Every Action Matters</Badge>
+                    <h1 className="text-6xl font-bold leading-tight">Together, We Change Lives.</h1>
+                    <p className="text-red-100 text-xl">Join thousands of passionate volunteers and donors making a real difference in communities worldwide.</p>
+                    <div className="flex gap-4 pt-2">
+                        <Button className="bg-white text-red-700 hover:bg-red-50 font-bold px-8 py-6 rounded-xl shadow-lg">Donate Now</Button>
+                        <Button className="bg-red-800/60 border border-white/20 text-white hover:bg-red-800 px-8 py-6 rounded-xl">Volunteer</Button>
+                    </div>
+                </div>
+            </div>
+
+            {/* Impact Stats */}
+            <div className="bg-emerald-800 px-12 py-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center text-white">
+                {[["$12M+", "Raised"], ["150K+", "Lives Impacted"], ["60+", "Countries"], ["5,000+", "Volunteers"]].map(([val, label], i) => (
+                    <div key={i}>
+                        <div className="text-3xl font-black">{val}</div>
+                        <div className="text-emerald-200 text-sm mt-1">{label}</div>
+                    </div>
+                ))}
+            </div>
+
+            {/* Projects */}
+            <div className="p-12 space-y-6">
+                <h2 className="text-3xl font-bold text-gray-900">Active Campaigns</h2>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    {[
+                        { name: "Clean Water Initiative", pct: 78, raised: "$156K" },
+                        { name: "Education for All", pct: 52, raised: "$89K" },
+                        { name: "Reforestation 2026", pct: 91, raised: "$204K" },
+                    ].map((proj, i) => (
+                        <Card key={i} className="p-6 border-0 shadow-md rounded-2xl space-y-4">
+                            <div className="w-10 h-10 bg-red-100 rounded-xl flex items-center justify-center text-xl">
+                                {["💧", "📚", "🌱"][i]}
+                            </div>
+                            <h3 className="font-bold text-gray-900">{proj.name}</h3>
+                            <div className="space-y-2">
+                                <div className="flex justify-between text-sm">
+                                    <span className="text-gray-500">Raised: {proj.raised}</span>
+                                    <span className="font-bold text-emerald-600">{proj.pct}%</span>
+                                </div>
+                                <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
+                                    <div className="h-full bg-emerald-500 rounded-full" style={{ width: `${proj.pct}%` }} />
+                                </div>
+                            </div>
+                            <Button size="sm" className="w-full bg-red-600 hover:bg-red-700 text-white rounded-xl">Support</Button>
+                        </Card>
+                    ))}
+                </div>
+            </div>
+        </div>
+    );
+}
+
+// ─── E-commerce Modern Preview ────────────────────────────────────────────────
+function EcommercePreview() {
+    return (
+        <div className="bg-white font-sans space-y-0">
+            {/* Nav */}
+            <div className="border-b px-12 py-4 flex justify-between items-center bg-white sticky top-0 z-10">
+                <div className="text-2xl font-black tracking-tight text-indigo-700">NEXSHOP</div>
+                <div className="flex gap-8 text-sm font-medium text-gray-500">
+                    {["New Arrivals", "Collections", "Sale", "Brand"].map(n => <span key={n} className="hover:text-indigo-600 cursor-pointer transition-colors">{n}</span>)}
+                </div>
+                <div className="flex items-center gap-3">
+                    <Badge className="bg-rose-500 text-white border-0">3</Badge>
+                    <Button size="sm" className="bg-indigo-700 hover:bg-indigo-800 rounded-xl">Cart 🛒</Button>
+                </div>
+            </div>
+
+            {/* Hero Banner */}
+            <div className="bg-gradient-to-r from-indigo-600 to-violet-600 text-white p-16 relative overflow-hidden">
+                <div className="absolute right-0 top-0 w-96 h-full bg-white/5 skew-x-[-20deg] translate-x-1/2" />
+                <div className="relative z-10 max-w-xl space-y-6">
+                    <Badge className="bg-rose-500 text-white border-0">🔥 Up to 50% OFF</Badge>
+                    <h1 className="text-6xl font-black leading-none">Spring<br />Collection<br />2026</h1>
+                    <Button className="bg-white text-indigo-700 hover:bg-indigo-50 font-bold px-8 py-6 rounded-2xl shadow-xl text-lg">Shop Now</Button>
+                </div>
+            </div>
+
+            {/* Products */}
+            <div className="p-12 space-y-6">
+                <h2 className="text-2xl font-bold text-gray-900">Featured Products</h2>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                    {[
+                        { name: "Carbon Sneaker", price: "$129", old: "$180", badge: "New" },
+                        { name: "Urban Jacket", price: "$89", old: "$140", badge: "Sale" },
+                        { name: "Classic Tote", price: "$45", old: "$60", badge: "Hot" },
+                        { name: "Tech Hoodie", price: "$75", old: "$110", badge: "Limited" },
+                    ].map((prod, i) => (
+                        <div key={i} className="group space-y-3 cursor-pointer">
+                            <div className="aspect-square bg-gray-100 rounded-2xl relative overflow-hidden group-hover:shadow-lg transition-shadow">
+                                <Badge className="absolute top-3 left-3 bg-rose-500 text-white border-0 text-xs">{prod.badge}</Badge>
+                                <Button size="sm" className="absolute bottom-3 left-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity bg-indigo-700 text-white rounded-xl text-xs">Add to Cart</Button>
+                            </div>
+                            <div>
+                                <div className="font-semibold text-gray-900">{prod.name}</div>
+                                <div className="flex gap-2 items-center">
+                                    <span className="font-bold text-indigo-700">{prod.price}</span>
+                                    <span className="text-xs text-gray-400 line-through">{prod.old}</span>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
+    );
+}
+
+// ─── Fitness Tracker Preview ──────────────────────────────────────────────────
+function FitnessTrackerPreview() {
+    return (
+        <div className="bg-white font-sans space-y-0">
+            {/* Hero */}
+            <div className="bg-gradient-to-br from-orange-500 to-red-600 text-white px-12 py-20 relative overflow-hidden">
+                <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(255,255,255,0.1) 20px, rgba(255,255,255,0.1) 21px)" }} />
+                <div className="relative z-10 max-w-2xl space-y-6">
+                    <Badge className="bg-white/20 text-white border-0">💪 Personal Training Platform</Badge>
+                    <h1 className="text-7xl font-black leading-none uppercase">Train<br />Harder.</h1>
+                    <p className="text-orange-100 text-xl">AI-powered training plans, real-time tracking, and expert coaching to crush your fitness goals.</p>
+                    <div className="flex gap-3">
+                        <Button className="bg-white text-orange-600 hover:bg-orange-50 font-bold px-8 py-6 rounded-2xl shadow-lg">Start Free Trial</Button>
+                        <Button className="bg-orange-600/40 border border-white/30 text-white hover:bg-orange-600/60 px-8 py-6 rounded-2xl">View Plans</Button>
+                    </div>
+                </div>
+            </div>
+
+            {/* Activity Dashboard */}
+            <div className="p-8 grid grid-cols-1 md:grid-cols-4 gap-4">
+                {[
+                    { label: "Calories Burned", value: "892 kcal", icon: "🔥", color: "text-orange-500" },
+                    { label: "Steps Today", value: "9,245", icon: "👟", color: "text-blue-500" },
+                    { label: "Workout Time", value: "1h 23m", icon: "⏱", color: "text-green-500" },
+                    { label: "Streak", value: "14 Days", icon: "⚡", color: "text-yellow-500" },
+                ].map((stat, i) => (
+                    <Card key={i} className="p-5 border-0 shadow-md rounded-2xl space-y-1">
+                        <div className="text-2xl">{stat.icon}</div>
+                        <div className={`text-2xl font-black ${stat.color}`}>{stat.value}</div>
+                        <div className="text-xs text-gray-500">{stat.label}</div>
+                    </Card>
+                ))}
+            </div>
+
+            {/* Weekly plan */}
+            <div className="px-8 pb-8 space-y-4">
+                <h2 className="text-xl font-bold text-gray-900">This Week's Plan</h2>
+                <div className="grid grid-cols-7 gap-2">
+                    {["M", "T", "W", "T", "F", "S", "S"].map((d, i) => (
+                        <div key={i} className={`rounded-xl p-3 text-center text-xs font-bold ${i < 3 ? 'bg-orange-500 text-white' : i === 3 ? 'bg-orange-100 text-orange-600 ring-2 ring-orange-500' : 'bg-gray-100 text-gray-400'}`}>
+                            <div>{d}</div>
+                            {i < 4 && <div className="mt-1 text-[9px] opacity-80">{["HIIT", "Run", "Yoga", "Gym"][i]}</div>}
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
+    );
+}
+
+// ─── AI SaaS Platform Preview ─────────────────────────────────────────────────
+function AISaaSPreview() {
+    return (
+        <div className="bg-[#0F172A] text-white font-sans space-y-0 overflow-hidden">
+            {/* Hero */}
+            <div className="relative px-12 py-24 overflow-hidden">
+                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-violet-700/20 blur-[120px] rounded-full translate-x-1/3 -translate-y-1/3" />
+                <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-cyan-600/15 blur-[100px] rounded-full -translate-x-1/3 translate-y-1/3" />
+                <div className="relative z-10 max-w-3xl space-y-8">
+                    <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-violet-500/10 border border-violet-500/30 rounded-full text-violet-300 text-sm">
+                        <Sparkles className="w-4 h-4" /> Introducing AI Suite 3.0
+                    </div>
+                    <h1 className="text-7xl font-bold leading-tight bg-gradient-to-r from-white via-violet-200 to-cyan-300 bg-clip-text text-transparent">
+                        The AI Platform<br />Teams Love.
+                    </h1>
+                    <p className="text-slate-400 text-xl max-w-xl leading-relaxed">
+                        Automate workflows, generate content, and analyze data 10× faster with our cutting-edge AI suite.
+                    </p>
+                    <div className="flex gap-4">
+                        <Button className="bg-violet-600 hover:bg-violet-500 text-white px-10 py-7 rounded-2xl font-bold shadow-[0_0_40px_rgba(124,58,237,0.4)]">Start Free</Button>
+                        <Button variant="ghost" className="border border-white/10 text-white hover:bg-white/5 px-10 py-7 rounded-2xl">Watch Demo</Button>
+                    </div>
+                </div>
+            </div>
+
+            {/* Features grid */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-white/5 border-t border-white/5">
+                {[
+                    { icon: "🤖", title: "AI Automation", desc: "Automate repetitive tasks with intelligent workflows." },
+                    { icon: "✍️", title: "Content Engine", desc: "Generate on-brand copy, visuals, and code instantly." },
+                    { icon: "📊", title: "Smart Analytics", desc: "Natural language queries over your entire data layer." },
+                ].map((feat, i) => (
+                    <div key={i} className="p-10 bg-[#0F172A] group hover:bg-white/[0.03] transition-colors cursor-pointer">
+                        <div className="text-4xl mb-6">{feat.icon}</div>
+                        <h3 className="text-xl font-bold mb-3">{feat.title}</h3>
+                        <p className="text-slate-400 leading-relaxed">{feat.desc}</p>
+                        <Button variant="link" className="text-violet-400 p-0 mt-4 font-semibold group-hover:translate-x-1 transition-transform">Learn more →</Button>
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
+}
+
+// ─── News Editorial Preview ───────────────────────────────────────────────────
+function NewsEditorialPreview() {
+    return (
+        <div className="bg-white font-sans space-y-0">
+            {/* Masthead */}
+            <div className="border-b-4 border-[#B91C1C] px-12 py-4 flex justify-between items-center">
+                <div>
+                    <div className="text-3xl font-black tracking-tight text-gray-900">THE CHRONICLE</div>
+                    <div className="text-xs text-gray-400 tracking-wider">Wednesday, April 9, 2026</div>
+                </div>
+                <div className="flex gap-3 text-xs font-bold uppercase tracking-widest text-gray-500">
+                    {["World", "Tech", "Business", "Culture"].map(s => <span key={s} className="hover:text-red-600 cursor-pointer">{s}</span>)}
+                </div>
+            </div>
+
+            {/* Breaking news ticker */}
+            <div className="bg-[#B91C1C] text-white px-12 py-2 flex gap-6 text-xs font-bold overflow-hidden">
+                <span className="shrink-0 bg-white text-red-700 px-3 py-0.5 rounded font-black">LIVE</span>
+                <span className="opacity-90">Global AI Regulation Summit Reaches Historic Agreement · Tech Giants Announce New Data Privacy Standards · Space Mission Returns After Six Months</span>
+            </div>
+
+            {/* Main Layout */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-0 divide-x divide-gray-200 px-12 pt-8">
+                {/* Lead Story */}
+                <div className="col-span-2 pr-8 space-y-4">
+                    <Badge className="bg-red-100 text-red-700 border-0 rounded-sm text-xs font-bold uppercase">Top Story</Badge>
+                    <h1 className="text-5xl font-black leading-tight text-gray-900">
+                        World Leaders Sign Landmark Climate Agreement at Emergency Summit
+                    </h1>
+                    <p className="text-gray-600 text-lg leading-relaxed border-l-4 border-red-600 pl-4">
+                        In a historic step forward, representatives from 195 nations gathered in Geneva to finalize binding emissions targets, with major economies committing to carbon neutrality by 2045.
+                    </p>
+                    <div className="flex gap-4 text-xs text-gray-400">
+                        <span>By Sarah Chen</span>
+                        <span>·</span>
+                        <span>4 hours ago</span>
+                        <span>·</span>
+                        <span>12 min read</span>
+                    </div>
+                </div>
+
+                {/* Sidebar Headlines */}
+                <div className="pl-8 space-y-6">
+                    {[
+                        { tag: "Tech", title: "Quantum Computer Solves Decades-Old Math Problem" },
+                        { tag: "Business", title: "Markets Rally After Central Bank Holds Rates" },
+                        { tag: "Culture", title: "Streaming Wars: Who's Really Winning in 2026" },
+                    ].map((art, i) => (
+                        <div key={i} className="pb-6 border-b border-gray-100 last:border-0 space-y-2 cursor-pointer group">
+                            <span className="text-[10px] font-black uppercase text-red-600 tracking-widest">{art.tag}</span>
+                            <h3 className="font-bold text-gray-900 leading-snug group-hover:text-red-600 transition-colors">{art.title}</h3>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
+    );
+}
+
+// ─── Restaurant Premium Preview ───────────────────────────────────────────────
+function RestaurantPremiumPreview() {
+    return (
+        <div className="bg-[#FFFBEB] font-serif space-y-0">
+            {/* Hero */}
+            <div className="relative min-h-[420px] bg-gradient-to-br from-amber-950 to-amber-800 flex items-center overflow-hidden">
+                <div className="absolute inset-0 opacity-20" style={{ backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.3) 1px, transparent 1px)", backgroundSize: "30px 30px" }} />
+                <div className="relative z-10 px-16 max-w-2xl space-y-6">
+                    <div className="flex items-center gap-3">
+                        <div className="h-px w-12 bg-amber-400" />
+                        <span className="text-amber-400 text-sm tracking-[0.4em] uppercase font-sans">Fine Dining Since 1989</span>
+                    </div>
+                    <h1 className="text-7xl font-bold text-white leading-tight">Le Jardin<br />Doré</h1>
+                    <p className="text-amber-200 text-xl font-light">An intimate culinary journey through the finest seasonal ingredients, crafted by our Michelin-starred chef.</p>
+                    <div className="flex gap-4 font-sans">
+                        <Button className="bg-amber-500 hover:bg-amber-400 text-amber-950 font-bold px-8 py-6 rounded-none">Reserve a Table</Button>
+                        <Button variant="ghost" className="border border-amber-400/50 text-amber-200 hover:bg-amber-900/50 px-8 py-6 rounded-none">View Menu</Button>
+                    </div>
+                </div>
+            </div>
+
+            {/* Menu Highlights */}
+            <div className="px-12 py-16 space-y-10">
+                <div className="text-center space-y-2">
+                    <div className="text-amber-600 text-sm tracking-[0.4em] uppercase font-sans">Tonight's Selection</div>
+                    <h2 className="text-4xl font-bold text-amber-950">Seasonal Menu</h2>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    {[
+                        { course: "Entrée", name: "Truffle Velouté", desc: "Black truffle, crème fraîche, crispy prosciutto", price: "$38" },
+                        { course: "Main", name: "Wagyu A5 Tenderloin", desc: "Seasonal vegetables, bone marrow jus, microgreens", price: "$145" },
+                        { course: "Dessert", name: "Grand Cru Chocolate", desc: "Valrhona mousse, salted caramel, edible gold", price: "$28" },
+                    ].map((dish, i) => (
+                        <div key={i} className="border-t-2 border-amber-300 pt-6 space-y-2">
+                            <div className="text-xs font-sans font-bold uppercase tracking-widest text-amber-600">{dish.course}</div>
+                            <div className="text-2xl font-bold text-amber-950">{dish.name}</div>
+                            <div className="text-amber-800/70 italic text-sm leading-relaxed">{dish.desc}</div>
+                            <div className="font-sans font-bold text-amber-700 text-lg">{dish.price}</div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
+    );
+}
+
+// ─── Productivity Tool Preview ────────────────────────────────────────────────
+function ProductivityToolPreview() {
+    return (
+        <div className="bg-white font-sans flex flex-col" style={{ minHeight: 600 }}>
+            {/* App header */}
+            <div className="border-b px-6 py-3 flex items-center justify-between bg-white">
+                <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+                        <Zap className="w-4 h-4 text-white" />
+                    </div>
+                    <div className="font-bold text-gray-900">FlowSpace</div>
+                </div>
+                <div className="flex gap-2">
+                    {["Board", "List", "Calendar"].map((v, i) => (
+                        <Button key={i} size="sm" variant={i === 0 ? "default" : "ghost"} className={`rounded-lg text-xs ${i === 0 ? 'bg-blue-600' : ''}`}>{v}</Button>
+                    ))}
+                </div>
+                <Button size="sm" className="bg-blue-600 hover:bg-blue-700 rounded-lg">+ New Task</Button>
+            </div>
+
+            {/* Kanban board */}
+            <div className="flex-1 p-6 overflow-auto bg-gray-50">
+                <div className="grid grid-cols-3 gap-4 min-w-[700px]">
+                    {[
+                        { col: "To Do", color: "text-gray-500", tasks: ["Redesign onboarding flow", "Set up CI/CD pipeline", "Write Q2 report"] },
+                        { col: "In Progress", color: "text-blue-600", tasks: ["User interviews", "API integration"] },
+                        { col: "Done", color: "text-green-600", tasks: ["Brand guidelines", "Landing page", "Unit tests"] },
+                    ].map((column, i) => (
+                        <div key={i} className="space-y-3">
+                            <div className={`flex items-center gap-2 font-bold text-sm ${column.color}`}>
+                                <div className={`w-2 h-2 rounded-full ${["bg-gray-400", "bg-blue-500", "bg-green-500"][i]}`} />
+                                {column.col}
+                                <Badge variant="secondary" className="ml-auto text-xs">{column.tasks.length}</Badge>
+                            </div>
+                            {column.tasks.map((task, j) => (
+                                <Card key={j} className="p-4 border-0 shadow-sm hover:shadow-md transition-shadow cursor-grab rounded-xl space-y-2">
+                                    <div className="text-sm font-medium text-gray-800">{task}</div>
+                                    <div className="flex items-center gap-2">
+                                        <div className="w-5 h-5 rounded-full bg-blue-200 text-blue-600 text-[9px] font-bold flex items-center justify-center">
+                                            {String.fromCharCode(65 + j)}
+                                        </div>
+                                        <span className="text-xs text-gray-400">{["Mon", "Wed", "Fri"][j % 3]}</span>
+                                        {i === 1 && <Badge className="ml-auto bg-blue-50 text-blue-600 border-blue-100 text-[9px] px-1.5">Active</Badge>}
+                                        {i === 2 && <CheckCircle className="ml-auto w-3 h-3 text-green-500" />}
+                                    </div>
+                                </Card>
+                            ))}
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
+    );
+}
+
+// ─── Art Gallery Zen Preview ──────────────────────────────────────────────────
+function ArtGalleryPreview() {
+    return (
+        <div className="bg-white font-sans space-y-0">
+            {/* Header */}
+            <div className="flex justify-between items-center px-12 py-6 border-b border-gray-100">
+                <div>
+                    <div className="text-2xl font-black tracking-[0.2em]">MOVA</div>
+                    <div className="text-xs text-gray-400 tracking-[0.3em] uppercase">Modern Art Gallery</div>
+                </div>
+                <nav className="flex gap-10 text-xs tracking-widest uppercase text-gray-400">
+                    <span className="hover:text-gray-900 cursor-pointer transition-colors">Exhibitions</span>
+                    <span className="hover:text-gray-900 cursor-pointer transition-colors">Artists</span>
+                    <span className="hover:text-gray-900 cursor-pointer transition-colors">Auction</span>
+                </nav>
+                <Button size="sm" variant="outline" className="rounded-none text-xs tracking-widest uppercase border-black">Visit Gallery</Button>
+            </div>
+
+            {/* Featured exhibition */}
+            <div className="grid grid-cols-1 md:grid-cols-2 min-h-[380px]">
+                <div className="bg-gradient-to-br from-violet-100 to-fuchsia-100 flex items-center justify-center relative overflow-hidden">
+                    {/* Abstract art placeholder */}
+                    <div className="absolute inset-8 border border-violet-200 rounded-full" />
+                    <div className="absolute inset-16 bg-fuchsia-300/30 rounded-3xl rotate-45" />
+                    <div className="absolute inset-12 bg-violet-400/20 rounded-full" />
+                    <div className="relative z-10 text-violet-600 font-black text-8xl opacity-10 select-none">∞</div>
+                </div>
+                <div className="p-16 flex flex-col justify-center space-y-8">
+                    <div>
+                        <span className="text-xs tracking-[0.4em] uppercase text-gray-400">Current Exhibition</span>
+                        <h1 className="text-5xl font-black leading-tight text-gray-900 mt-2">Infinite<br />Perspectives</h1>
+                    </div>
+                    <p className="text-gray-500 leading-relaxed text-lg">
+                        A groundbreaking collection exploring the boundaries of perception, space, and human consciousness through 40 contemporary works.
+                    </p>
+                    <div className="text-sm text-gray-400 space-y-1">
+                        <div>April 1 – June 30, 2026</div>
+                        <div>Gallery Hall A & B</div>
+                    </div>
+                    <Button className="w-fit bg-gray-900 hover:bg-black text-white rounded-none px-10 py-5 text-xs uppercase tracking-widest font-bold">Explore Exhibition</Button>
+                </div>
+            </div>
+
+            {/* Artist spotlight */}
+            <div className="px-12 py-10 bg-gray-50 border-t border-gray-100">
+                <div className="flex justify-between items-center mb-6">
+                    <h2 className="text-xl font-bold">Featured Artists</h2>
+                    <Button variant="link" className="text-violet-600 p-0 text-xs">View All Artists →</Button>
+                </div>
+                <div className="grid grid-cols-4 gap-6">
+                    {["Elena Voss", "Kai Chen", "Mara Okafor", "Luca Ferrante"].map((artist, i) => (
+                        <div key={i} className="text-center space-y-2 cursor-pointer group">
+                            <div className={`w-16 h-16 rounded-full mx-auto ${["bg-violet-200", "bg-fuchsia-200", "bg-pink-200", "bg-indigo-200"][i]}`} />
+                            <div className="text-sm font-bold text-gray-800 group-hover:text-violet-600 transition-colors">{artist}</div>
+                            <div className="text-xs text-gray-400">{["Berlin", "Shanghai", "Lagos", "Milan"][i]}</div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
+    );
+}
+
+// ─── Gaming News Portal Preview ───────────────────────────────────────────────
+function GamingNewsPreview() {
+    return (
+        <div className="bg-[#0F172A] text-white font-sans space-y-0 overflow-hidden">
+            {/* Masthead */}
+            <div className="bg-[#1E1B4B] border-b border-yellow-400/20 px-8 py-4 flex justify-between items-center">
+                <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 bg-yellow-400 rounded flex items-center justify-center">
+                        <Zap className="w-4 h-4 text-indigo-900" />
+                    </div>
+                    <div className="text-2xl font-black tracking-tight text-yellow-400">GAME<span className="text-white">RIFT</span></div>
+                </div>
+                <nav className="flex gap-8 text-xs font-bold uppercase tracking-widest text-gray-400">
+                    {["Esports", "Reviews", "Trailers", "Community"].map(n => <span key={n} className="hover:text-yellow-400 cursor-pointer transition-colors">{n}</span>)}
+                </nav>
+                <div className="flex gap-2">
+                    <Badge className="bg-red-500/20 text-red-400 border border-red-500/30 text-xs animate-pulse">🔴 LIVE</Badge>
+                </div>
+            </div>
+
+            {/* Featured */}
+            <div className="relative min-h-[300px] bg-gradient-to-br from-indigo-900 to-purple-900 flex items-end p-8 overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-r from-yellow-500/5 via-transparent to-red-500/10" />
+                <div className="absolute top-0 right-0 w-72 h-72 bg-yellow-400/5 rounded-full blur-3xl" />
+                <Badge className="absolute top-6 left-8 bg-yellow-400 text-indigo-900 font-black border-0">FEATURED STORY</Badge>
+                <div className="relative z-10 space-y-3 max-w-xl">
+                    <h1 className="text-5xl font-black leading-tight">World Championship Finals: The Biggest Event in Esports History</h1>
+                    <p className="text-gray-400">32 teams, 64 nations, one trophy. The ultimate gaming showdown begins this weekend.</p>
+                    <div className="flex gap-2 text-xs text-gray-500">
+                        <span>By Marcus Rivera</span><span>·</span><span>2h ago</span><span>·</span><span>45K reads</span>
+                    </div>
+                </div>
+            </div>
+
+            {/* News Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-white/5">
+                {[
+                    { tag: "Review", title: "Stellar Odyssey 2 Redefines Open World RPGs", time: "4h ago", score: 9.4 },
+                    { tag: "Esports", title: "Team Nexus Wins $5M LAN Tournament in Seoul", time: "6h ago", score: null },
+                    { tag: "Trailer", title: "Dark Protocol Gets Explosive Gameplay Reveal", time: "8h ago", score: null },
+                ].map((article, i) => (
+                    <div key={i} className="p-6 bg-[#0F172A] space-y-3 group cursor-pointer hover:bg-[#1E293B] transition-colors">
+                        <div className="flex justify-between items-center">
+                            <Badge className={`border-0 text-xs font-black ${i === 0 ? 'bg-yellow-400/10 text-yellow-400' : i === 1 ? 'bg-red-500/10 text-red-400' : 'bg-blue-500/10 text-blue-400'}`}>{article.tag}</Badge>
+                            {article.score && <span className="text-yellow-400 font-black">{article.score}</span>}
+                        </div>
+                        <h3 className="font-bold text-gray-200 leading-snug group-hover:text-yellow-400 transition-colors">{article.title}</h3>
+                        <div className="text-xs text-gray-500">{article.time}</div>
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
+}
+

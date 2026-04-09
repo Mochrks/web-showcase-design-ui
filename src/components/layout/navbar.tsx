@@ -46,11 +46,9 @@ export function Navbar() {
                 <div className="flex items-center justify-between h-16">
                     {/* Logo */}
                     <Link href="/" className="flex items-center space-x-2">
-                        <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-                            <span className="text-primary-foreground font-bold text-xl">U</span>
-                        </div>
+
                         <span className="font-bold text-xl">
-                            UI Showcase
+                            Web UI Showcase
                         </span>
                     </Link>
 

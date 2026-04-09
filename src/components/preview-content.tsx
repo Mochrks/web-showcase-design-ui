@@ -51,7 +51,7 @@ export function PreviewContent({ template }: PreviewContentProps) {
                                 <Button variant="outline">View Components</Button>
                             </Link>
                             <Button
-                                className="bg-gradient-to-r from-primary to-accent hover:opacity-90"
+
                                 onClick={() => handleDownload("nextjs")}
                             >
                                 <Download className="w-4 h-4 mr-2" />
@@ -100,7 +100,7 @@ export function PreviewContent({ template }: PreviewContentProps) {
                                         <div className="flex gap-3">
                                             <Button
                                                 onClick={() => handleDownload("nextjs")}
-                                                className="flex-1 bg-gradient-to-r from-primary to-accent hover:opacity-90"
+                                                className="flex-1 "
                                             >
                                                 <Download className="w-4 h-4 mr-2" />
                                                 Next.js Version
