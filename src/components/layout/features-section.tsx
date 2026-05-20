@@ -1,8 +1,9 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Palette, Download, Code, Zap, Layers, Sparkles } from "lucide-react";
-
+import LightRays from "../LightRays";
 const features = [
     {
         icon: Palette,
@@ -43,11 +44,57 @@ const features = [
 ];
 
 export function FeaturesSection() {
+    const [mounted, setMounted] = useState(false);
+    const [isDark, setIsDark] = useState(false);
+
+    useEffect(() => {
+        let active = true;
+        requestAnimationFrame(() => {
+            if (active) {
+                setMounted(true);
+            }
+        });
+
+        const checkTheme = () => {
+            if (active) {
+                setIsDark(document.documentElement.classList.contains("dark"));
+            }
+        };
+        checkTheme();
+
+        const observer = new MutationObserver(checkTheme);
+        observer.observe(document.documentElement, {
+            attributes: true,
+            attributeFilter: ["class"],
+        });
+
+        return () => {
+            active = false;
+            observer.disconnect();
+        };
+    }, []);
+
+    // Glow neon cyan in light mode to remain visible and gorgeous, white in dark mode
+    const raysColor = mounted && !isDark ? "#00e5ff" : "#ffffff";
+
     return (
         <section id="features" className="relative py-24" style={{ backgroundColor: "var(--canvas)" }}>
-            {/* Atmospheric glow */}
-            <div className="absolute top-0 left-0 right-0 h-[500px] pointer-events-none glow-cyan-grained" />
-
+            <div className="absolute inset-0 z-0 pointer-events-none">
+                <LightRays
+                    raysOrigin="top-center"
+                    raysColor={raysColor}
+                    raysSpeed={1.1}
+                    lightSpread={0.2}
+                    rayLength={3}
+                    pulsating={false}
+                    fadeDistance={1}
+                    saturation={1.8}
+                    followMouse
+                    mouseInfluence={0.1}
+                    noiseAmount={0.55}
+                    distortion={0.05}
+                />
+            </div>
             <div className="max-w-[1200px] mx-auto px-6 relative z-10">
                 {/* Section Header */}
                 <div className="text-center mb-20">
@@ -57,12 +104,10 @@ export function FeaturesSection() {
                         viewport={{ once: true }}
                         transition={{ duration: 0.5 }}
                     >
-                        <h2 className="text-display-xl text-[var(--ink)] mb-6">
-                            Everything you need
-                        </h2>
+                        <h2 className="text-display-xl text-[var(--ink)] mb-6">Everything you need</h2>
                         <p className="text-subtitle text-[var(--body-text)] max-w-2xl mx-auto">
-                            Professional UI templates with complete design systems, ready to download
-                            and customize for your next project
+                            Professional UI templates with complete design systems, ready to download and customize for
+                            your next project
                         </p>
                     </motion.div>
                 </div>
@@ -91,19 +136,17 @@ export function FeaturesSection() {
                                         backgroundColor: `color-mix(in srgb, ${feature.accentColor} 15%, transparent)`,
                                     }}
                                 >
-                                    <feature.icon
-                                        className="w-5 h-5"
-                                        style={{ color: feature.accentColor }}
-                                    />
+                                    <feature.icon className="w-5 h-5" style={{ color: feature.accentColor }} />
                                 </div>
 
                                 {/* Title */}
-                                <h3 className="text-heading-md text-[var(--ink)] mb-2">
-                                    {feature.title}
-                                </h3>
+                                <h3 className="text-heading-md text-[var(--ink)] mb-2">{feature.title}</h3>
 
                                 {/* Description */}
-                                <p className="text-[16px] leading-[1.5] text-[var(--body-text)]" style={{ letterSpacing: "-0.8px" }}>
+                                <p
+                                    className="text-[16px] leading-[1.5] text-[var(--body-text)]"
+                                    style={{ letterSpacing: "-0.8px" }}
+                                >
                                     {feature.description}
                                 </p>
                             </div>

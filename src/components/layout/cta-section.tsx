@@ -1,19 +1,58 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
+import Beams from "../Beams";
 
 export function CTASection() {
+    const [mounted, setMounted] = useState(false);
+    const [isDark, setIsDark] = useState(false);
+
+    useEffect(() => {
+        let active = true;
+        requestAnimationFrame(() => {
+            if (active) {
+                setMounted(true);
+            }
+        });
+
+        const checkTheme = () => {
+            if (active) {
+                setIsDark(document.documentElement.classList.contains("dark"));
+            }
+        };
+        checkTheme();
+
+        const observer = new MutationObserver(checkTheme);
+        observer.observe(document.documentElement, {
+            attributes: true,
+            attributeFilter: ["class"],
+        });
+
+        return () => {
+            active = false;
+            observer.disconnect();
+        };
+    }, []);
+
     return (
         <section className="relative py-32 overflow-hidden" style={{ backgroundColor: "var(--canvas)" }}>
-            {/* Atmospheric glow — red wash */}
-            <div
-                className="absolute top-0 left-0 right-0 h-[600px] pointer-events-none"
-                style={{
-                    background: "radial-gradient(ellipse at top center, var(--accent-red-glow) 0%, transparent 55%)",
-                }}
-            />
-
+            <div 
+                className="absolute inset-0 z-0 pointer-events-none transition-opacity duration-500"
+                style={{ opacity: mounted && isDark ? 1 : 0 }}
+            >
+                <Beams
+                    beamWidth={3.5}
+                    beamHeight={20}
+                    beamNumber={22}
+                    lightColor="#ffffff"
+                    speed={6.1}
+                    noiseIntensity={1.75}
+                    scale={0.15}
+                    rotation={-20}
+                />
+            </div>
             {/* Subtle grid */}
             <div
                 className="absolute inset-0 bg-grid-editorial opacity-15 pointer-events-none"
@@ -33,8 +72,7 @@ export function CTASection() {
                 >
                     {/* Headline */}
                     <h2 className="text-display-xl text-[var(--ink)] mb-6">
-                        Ready to build{" "}
-                        <span className="text-[var(--charcoal)]">something remarkable?</span>
+                        Ready to build <span className="text-[var(--charcoal)]">something remarkable?</span>
                     </h2>
 
                     {/* Subtitle */}

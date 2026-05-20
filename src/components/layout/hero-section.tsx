@@ -36,7 +36,8 @@ export function HeroSection() {
                 <div
                     className="absolute top-0 left-1/2 -translate-x-1/2 w-[120%] h-[600px] animate-pulse-glow"
                     style={{
-                        background: "radial-gradient(ellipse at 40% 0%, rgba(0,117,255,0.12) 0%, transparent 50%), radial-gradient(ellipse at 60% 0%, rgba(255,89,0,0.08) 0%, transparent 50%)",
+                        background:
+                            "radial-gradient(ellipse at 40% 0%, rgba(0,117,255,0.12) 0%, transparent 50%), radial-gradient(ellipse at 60% 0%, rgba(255,89,0,0.08) 0%, transparent 50%)",
                     }}
                 />
             </div>
@@ -77,8 +78,7 @@ export function HeroSection() {
                         transition={{ duration: 0.6, delay: 0.1 }}
                         className="text-display-xxl text-[var(--ink)] mb-6"
                     >
-                        UI Design for{" "}
-                        <br className="hidden sm:block" />
+                        UI Design for <br className="hidden sm:block" />
                         <span className="text-[var(--ink)]">Modern Builders</span>
                     </motion.h1>
 
@@ -89,9 +89,8 @@ export function HeroSection() {
                         transition={{ duration: 0.5, delay: 0.2 }}
                         className="text-subtitle text-[var(--body-text)] mb-12 max-w-2xl mx-auto leading-relaxed"
                     >
-                        Explore 40+ meticulously designed UI templates. From Neo-Brutalism to
-                        Japanese Zen — diverse design systems with download-ready boilerplates
-                        for Next.js and React.
+                        Explore 40+ meticulously designed UI templates. From Neo-Brutalism to Japanese Zen — diverse
+                        design systems with download-ready boilerplates for Next.js and React.
                     </motion.p>
 
                     {/* CTA Buttons */}
@@ -111,7 +110,6 @@ export function HeroSection() {
                             Explore Collection
                             <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
                         </button>
-
                     </motion.div>
 
                     {/* Stats Row */}
