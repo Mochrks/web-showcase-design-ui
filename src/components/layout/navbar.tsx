@@ -18,7 +18,9 @@ export function Navbar() {
 
         // Check initial theme
         const hasDark = document.documentElement.classList.contains("dark");
-        setIsDark(hasDark);
+        requestAnimationFrame(() => {
+            setIsDark(hasDark);
+        });
 
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);

@@ -46,12 +46,7 @@ export function FeaturesSection() {
     return (
         <section id="features" className="relative py-24" style={{ backgroundColor: "var(--canvas)" }}>
             {/* Atmospheric glow */}
-            <div
-                className="absolute top-0 left-0 right-0 h-[500px] pointer-events-none"
-                style={{
-                    background: "radial-gradient(ellipse at top center, var(--accent-green-glow) 0%, transparent 60%)",
-                }}
-            />
+            <div className="absolute top-0 left-0 right-0 h-[500px] pointer-events-none glow-cyan-grained" />
 
             <div className="max-w-[1200px] mx-auto px-6 relative z-10">
                 {/* Section Header */}

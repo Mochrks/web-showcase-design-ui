@@ -39,7 +39,9 @@ const SmoothScroll: React.FC<SmoothScrollProps> = ({ children }) => {
             syncTouch: true, // Smooth transitions for touch devices
         });
 
-        setLenisInstance(lenis);
+        requestAnimationFrame(() => {
+            setLenisInstance(lenis);
+        });
 
         // Connect Lenis to GSAP ScrollTrigger
         const updateScrollTrigger = () => ScrollTrigger.update();
