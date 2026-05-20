@@ -75,20 +75,13 @@ export function DesignSystemContent({ template: initialTemplate }: DesignSystemC
 
     return (
         <div className="min-h-screen bg-background">
-            {/* Inject CSS variables and fonts for live preview */}
-            <style dangerouslySetInnerHTML={{
-                __html: `
-                ${themeConfig.cssVariables}
-                ${fontCSS}
-            ` }} />
-
-            {/* Header */}
+            {/* Header — uses base app theme, NOT template theme */}
             <div className="border-b sticky top-0 bg-background/80 backdrop-blur-lg z-50">
                 <div className="container mx-auto px-4 py-4">
                     <div className="flex items-center justify-between">
                         <div className="flex items-center space-x-4">
                             <Link href="/">
-                                <Button variant="ghost" size="sm">
+                                <Button variant="ghost" size="sm" className="cursor-pointer">
                                     <ArrowLeft className="w-4 h-4 mr-2" />
                                     Back
                                 </Button>
@@ -98,7 +91,7 @@ export function DesignSystemContent({ template: initialTemplate }: DesignSystemC
                                 <p className="text-sm text-muted-foreground">Design System</p>
                             </div>
                         </div>
-                        <div className="flex items-center space-x-2">
+                        <div className="flex items-center space-x-2 cursor-pointer">
                             <Link href={`/templates/${template.slug}/preview`}>
                                 <Button variant="outline">View Preview</Button>
                             </Link>
@@ -109,9 +102,9 @@ export function DesignSystemContent({ template: initialTemplate }: DesignSystemC
 
             <div className="container mx-auto px-4 py-12">
                 <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-                    {/* Sidebar */}
+                    {/* Sidebar — uses base app theme, scrollable */}
                     <div className="lg:col-span-1">
-                        <div className="sticky top-24 space-y-6">
+                        <div className="sticky top-24 space-y-6 max-h-[calc(100vh-7rem)] overflow-y-auto pr-2 scrollbar-thin">
                             {/* Color Palette Editor */}
                             <ColorPaletteEditor
                                 template={template}
@@ -119,7 +112,7 @@ export function DesignSystemContent({ template: initialTemplate }: DesignSystemC
                             />
 
                             {/* Download Section */}
-                            <Card className={styles.card}>
+                            <Card>
                                 <CardHeader>
                                     <CardTitle className="text-lg">Download Template</CardTitle>
                                 </CardHeader>
@@ -147,7 +140,7 @@ export function DesignSystemContent({ template: initialTemplate }: DesignSystemC
                                         </RadioGroup>
                                     </div>
                                     <Button
-                                        className={`w-full ${styles.button}`}
+                                        className="w-full cursor-pointer"
                                         onClick={handleDownload}
                                         disabled={isDownloading}
                                     >
@@ -171,13 +164,26 @@ export function DesignSystemContent({ template: initialTemplate }: DesignSystemC
                         </div>
                     </div>
 
-                    {/* Main Content */}
+                    {/* Main Content — template CSS injected here only */}
                     <div className="lg:col-span-3">
+                        {/* Inject CSS variables and fonts for live preview — scoped to main content */}
+                        <style dangerouslySetInnerHTML={{
+                            __html: `
+                            .design-system-preview {
+                                ${themeConfig.cssVariables
+                                    .replace(/@layer\s+base\s*\{/g, '')
+                                    .replace(/:root\s*\{/g, '')
+                                    .replace(/\}\s*$/g, '')
+                                    .replace(/\}\s*\}/g, '')
+                                    .trim()}
+                            }
+                            ${fontCSS}
+                        ` }} />
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5 }}
-                            className="space-y-8"
+                            className="space-y-8 design-system-preview"
                         >
                             {/* Typography */}
                             <ComponentSection title="Typography">

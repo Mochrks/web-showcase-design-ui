@@ -1,11 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { Template } from "@/lib/templates-data";
-import { Eye, Download, Palette, ArrowRight } from "lucide-react";
+import { Eye, Palette, ArrowRight, Download } from "lucide-react";
 import { motion } from "framer-motion";
 
 interface TemplateCardProps {
@@ -15,29 +12,44 @@ interface TemplateCardProps {
 export function TemplateCard({ template }: TemplateCardProps) {
     return (
         <motion.div
-            whileHover={{ y: -5 }}
-            transition={{ duration: 0.3 }}
+            whileHover={{ y: -4 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
             className="h-full"
         >
-            <Card className="group overflow-hidden border-2 hover:border-primary/50 transition-all duration-300 hover:shadow-2xl h-full flex flex-col bg-card/50 backdrop-blur-sm">
-                {/* Preview Image / Mockup */}
-                <div className="relative aspect-[16/10] overflow-hidden bg-muted group-hover:bg-muted/30 transition-colors">
-                    <div className="absolute inset-0 p-4 transition-transform duration-500 group-hover:scale-[1.02]">
-                        {/* Mini Browser Window */}
-                        <div className="bg-background rounded-lg shadow-2xl h-full flex flex-col overflow-hidden border">
-                            {/* Browser Header */}
-                            <div className="flex items-center justify-between px-3 py-2 border-b bg-muted/20">
+            <div
+                className="group overflow-hidden rounded-xl h-full flex flex-col transition-all duration-300 hover:border-[var(--charcoal)]"
+                style={{
+                    backgroundColor: "var(--surface-card)",
+                    border: "1px solid var(--hairline-strong)",
+                }}
+            >
+                {/* Preview Area */}
+                <div className="relative aspect-[16/10] overflow-hidden">
+                    <div className="absolute inset-0 p-3 transition-transform duration-500 group-hover:scale-[1.02]">
+                        {/* Mini Code Window */}
+                        <div
+                            className="rounded-lg h-full flex flex-col overflow-hidden"
+                            style={{
+                                backgroundColor: "var(--surface-deep)",
+                                border: "1px solid var(--hairline-strong)",
+                            }}
+                        >
+                            {/* Traffic Light Header */}
+                            <div
+                                className="flex items-center justify-between px-3 py-2"
+                                style={{ borderBottom: "1px solid var(--hairline)" }}
+                            >
                                 <div className="flex gap-1.5">
-                                    <div className="w-2.5 h-2.5 rounded-full bg-red-400"></div>
-                                    <div className="w-2.5 h-2.5 rounded-full bg-yellow-400"></div>
-                                    <div className="w-2.5 h-2.5 rounded-full bg-green-400"></div>
+                                    <div className="w-2 h-2 rounded-full" style={{ backgroundColor: "var(--accent-red)" }} />
+                                    <div className="w-2 h-2 rounded-full" style={{ backgroundColor: "var(--accent-yellow)" }} />
+                                    <div className="w-2 h-2 rounded-full" style={{ backgroundColor: "var(--accent-green)" }} />
                                 </div>
-                                <div className="text-[8px] text-muted-foreground font-medium uppercase tracking-tighter opacity-50">
-                                    {template.slug}.demo
+                                <div className="text-[8px] font-mono text-[var(--stone)] uppercase tracking-wider">
+                                    {template.slug}.ui
                                 </div>
                             </div>
 
-                            {/* Content Area - Theme Specific Mockups */}
+                            {/* Content Area — Theme-specific mockups */}
                             <div className="flex-1 p-3 overflow-hidden">
                                 {template.slug === "neo-brutalism" ? (
                                     <div className="space-y-2">
@@ -91,69 +103,69 @@ export function TemplateCard({ template }: TemplateCardProps) {
                                     </div>
                                 ) : template.category === "Dashboard" || template.category === "Fintech" ? (
                                     <div className="flex gap-2 h-full">
-                                        <div className="w-8 border-r h-full space-y-2 pr-1">
-                                            {[1, 2, 3].map(i => <div key={i} className="h-2 w-2 rounded-full bg-muted" />)}
+                                        <div className="w-8 h-full space-y-2 pr-1" style={{ borderRight: "1px solid var(--hairline)" }}>
+                                            {[1, 2, 3].map(i => <div key={i} className="h-2 w-2 rounded-full bg-[var(--stone)]" />)}
                                         </div>
                                         <div className="flex-1 space-y-3">
-                                            <div className="h-10 rounded-lg flex items-end gap-1 p-1 bg-muted/30">
+                                            <div className="h-10 rounded-lg flex items-end gap-1 p-1" style={{ backgroundColor: "var(--surface-elevated)" }}>
                                                 {[30, 60, 45, 80, 50].map((h, i) => (
                                                     <div key={i} className="flex-1 rounded-t-sm" style={{ height: `${h}%`, backgroundColor: template.colors.primary }} />
                                                 ))}
                                             </div>
                                             <div className="space-y-1">
-                                                <div className="h-1.5 w-full bg-muted rounded" />
-                                                <div className="h-1.5 w-2/3 bg-muted rounded" />
+                                                <div className="h-1.5 w-full rounded" style={{ backgroundColor: "var(--hairline-strong)" }} />
+                                                <div className="h-1.5 w-2/3 rounded" style={{ backgroundColor: "var(--hairline)" }} />
                                             </div>
                                         </div>
                                     </div>
                                 ) : template.category === "Fashion" || template.category === "Food" ? (
                                     <div className="space-y-3">
                                         <div className="h-16 rounded-xl relative overflow-hidden" style={{ backgroundColor: template.colors.secondary }}>
-                                            <div className="absolute top-2 left-2 h-2 w-1/2 bg-primary/20 rounded-full" />
-                                            <div className="absolute bottom-2 left-2 h-4 w-4 rounded-full bg-primary/40" />
+                                            <div className="absolute top-2 left-2 h-2 w-1/2 bg-white/20 rounded-full" />
+                                            <div className="absolute bottom-2 left-2 h-4 w-4 rounded-full bg-white/40" />
                                         </div>
                                         <div className="grid grid-cols-3 gap-2">
                                             {[1, 2, 3].map(i => (
-                                                <div key={i} className="h-8 rounded-lg bg-muted/40 flex items-center justify-center">
-                                                    <div className="w-1/2 h-1 bg-primary/10 rounded" />
+                                                <div key={i} className="h-8 rounded-lg flex items-center justify-center" style={{ backgroundColor: "var(--surface-elevated)" }}>
+                                                    <div className="w-1/2 h-1 rounded" style={{ backgroundColor: "var(--hairline-strong)" }} />
                                                 </div>
                                             ))}
                                         </div>
                                     </div>
                                 ) : template.slug === "cyberpunk-futuristic" || template.category === "Gaming" ? (
                                     <div className="space-y-3 font-mono">
-                                        <div className="h-12 border-l-4 border-primary bg-primary/5 flex items-center px-2 relative skew-x-[-10deg]">
-                                            <div className="h-1 w-1/3 bg-primary" />
-                                            <div className="absolute top-0 right-0 w-2 h-full bg-primary/20" />
+                                        <div className="h-12 border-l-4 flex items-center px-2 relative skew-x-[-10deg]" style={{ borderColor: template.colors.primary, backgroundColor: template.colors.primary + '10' }}>
+                                            <div className="h-1 w-1/3" style={{ backgroundColor: template.colors.primary }} />
+                                            <div className="absolute top-0 right-0 w-2 h-full" style={{ backgroundColor: template.colors.primary + '30' }} />
                                         </div>
                                         <div className="grid grid-cols-2 gap-2 skew-x-[-10deg]">
-                                            <div className="h-10 bg-accent/20 border-r-2 border-accent" />
-                                            <div className="h-10 bg-primary/20 border-r-2 border-primary" />
+                                            <div className="h-10 border-r-2" style={{ backgroundColor: template.colors.accent + '20', borderColor: template.colors.accent }} />
+                                            <div className="h-10 border-r-2" style={{ backgroundColor: template.colors.primary + '20', borderColor: template.colors.primary }} />
                                         </div>
                                     </div>
                                 ) : template.category === "Zen" || template.slug === "minimalist-clean" ? (
                                     <div className="space-y-4 flex flex-col items-center py-2">
-                                        <div className="h-0.5 w-1/3 bg-foreground/30" />
+                                        <div className="h-0.5 w-1/3" style={{ backgroundColor: "var(--hairline-strong)" }} />
                                         <div className="h-12 w-full flex items-center justify-center">
-                                            <div className="w-2/3 h-full border border-foreground/5 rounded-sm" />
+                                            <div className="w-2/3 h-full rounded-sm" style={{ border: "1px solid var(--hairline)" }} />
                                         </div>
                                         <div className="flex gap-4">
-                                            <div className="h-0.5 w-8 bg-foreground/20" />
-                                            <div className="h-0.5 w-8 bg-foreground/20" />
+                                            <div className="h-0.5 w-8" style={{ backgroundColor: "var(--hairline-strong)" }} />
+                                            <div className="h-0.5 w-8" style={{ backgroundColor: "var(--hairline-strong)" }} />
                                         </div>
                                     </div>
                                 ) : (
                                     <div className="space-y-3">
-                                        <div className="h-12 rounded-2xl flex items-center justify-center shadow-inner" style={{ backgroundColor: template.colors.primary + '20' }}>
+                                        <div className="h-12 rounded-xl flex items-center justify-center" style={{ backgroundColor: template.colors.primary + '15' }}>
                                             <div className="h-1 w-1/3 rounded-full" style={{ backgroundColor: template.colors.primary }} />
                                         </div>
                                         <div className="grid grid-cols-2 gap-2">
-                                            <div className="h-10 rounded-xl" style={{ backgroundColor: template.colors.secondary }} />
-                                            <div className="h-10 rounded-xl" style={{ backgroundColor: template.colors.accent }} />
+                                            <div className="h-10 rounded-lg" style={{ backgroundColor: template.colors.secondary }} />
+                                            <div className="h-10 rounded-lg" style={{ backgroundColor: template.colors.accent }} />
                                         </div>
                                         <div className="space-y-1">
-                                            <div className="h-1 w-full bg-muted rounded" />
-                                            <div className="h-1 w-4/5 bg-muted rounded" />
+                                            <div className="h-1 w-full rounded" style={{ backgroundColor: "var(--hairline-strong)" }} />
+                                            <div className="h-1 w-4/5 rounded" style={{ backgroundColor: "var(--hairline)" }} />
                                         </div>
                                     </div>
                                 )}
@@ -161,96 +173,124 @@ export function TemplateCard({ template }: TemplateCardProps) {
                         </div>
                     </div>
 
-                    {/* Gradient Decorative Orbs */}
-                    <div className="absolute top-0 left-0 w-full h-full -z-10 pointer-events-none overflow-hidden">
-                        <div
-                            className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] rounded-full blur-[40px] opacity-20 transition-transform duration-700 group-hover:scale-150"
-                            style={{ backgroundColor: template.colors.primary }}
-                        />
-                        <div
-                            className="absolute bottom-[-20%] right-[-10%] w-[50%] h-[50%] rounded-full blur-[40px] opacity-20 transition-transform duration-700 group-hover:scale-150"
-                            style={{ backgroundColor: template.colors.accent }}
-                        />
-                    </div>
-
-                    {/* Hover Overlay */}
-                    <div className="absolute inset-0 bg-background/80 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col items-center justify-center gap-3 p-6">
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            className="flex flex-col gap-2 w-full max-w-[140px]"
-                        >
+                    {/* Hover Overlay — always dark, so use hardcoded colors */}
+                    <div
+                        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col items-center justify-center gap-3 p-6"
+                        style={{
+                            backgroundColor: "rgba(0,0,0,0.85)",
+                            backdropFilter: "blur(8px)",
+                        }}
+                    >
+                        <div className="flex flex-col gap-2 w-full max-w-[160px]">
                             <Link href={`/templates/${template.slug}/preview`}>
-                                <Button size="sm" className="w-full shadow-lg">
-                                    <Eye className="w-3.5 h-3.5 mr-2" />
+                                <button
+                                    className="cursor-pointer w-full h-9 rounded-lg text-[14px] font-medium transition-colors flex items-center justify-center gap-2"
+                                    style={{
+                                        backgroundColor: "#fcfdff",
+                                        color: "#000000",
+                                    }}
+                                    onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = "#e0e4e8"; }}
+                                    onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = "#fcfdff"; }}
+                                >
+                                    <Eye className="w-3.5 h-3.5" />
                                     Live Demo
-                                </Button>
+                                </button>
                             </Link>
                             <Link href={`/templates/${template.slug}/design-system`}>
-                                <Button size="sm" variant="outline" className="w-full bg-background/50 hover:bg-background">
-                                    <Palette className="w-3.5 h-3.5 mr-2" />
+                                <button
+                                    className="cursor-pointer w-full h-9 rounded-lg text-[14px] font-medium transition-colors flex items-center justify-center gap-2"
+                                    style={{
+                                        backgroundColor: "rgba(255,255,255,0.08)",
+                                        color: "#fcfdff",
+                                        border: "1px solid rgba(255,255,255,0.14)",
+                                    }}
+                                    onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = "rgba(255,255,255,0.16)"; }}
+                                    onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = "rgba(255,255,255,0.08)"; }}
+                                >
+                                    <Palette className="w-3.5 h-3.5" />
                                     Components
-                                </Button>
+                                </button>
                             </Link>
-                        </motion.div>
+                        </div>
                     </div>
 
                     {/* Category Badge */}
                     <div className="absolute top-3 right-3 z-10">
-                        <Badge variant="outline" className="bg-background/90 backdrop-blur-md shadow-sm border font-semibold px-3">
+                        <span
+                            className="inline-flex items-center rounded-full px-3 py-1 text-[12px] font-medium text-[var(--body-text)]"
+                            style={{
+                                backgroundColor: "var(--surface-elevated)",
+                                border: "1px solid var(--hairline-strong)",
+                                backdropFilter: "blur(8px)",
+                            }}
+                        >
                             {template.category}
-                        </Badge>
+                        </span>
                     </div>
                 </div>
 
-                <CardContent className="p-5 flex-1 flex flex-col">
-                    {/* Header */}
-                    <div className="flex items-start justify-between mb-2">
-                        <h3 className="font-bold text-xl group-hover:text-primary transition-colors">
-                            {template.name}
-                        </h3>
-                    </div>
+                {/* Card Content */}
+                <div className="p-5 flex-1 flex flex-col">
+                    {/* Title */}
+                    <h3 className="font-medium text-[18px] text-[var(--ink)] mb-1.5 group-hover:text-[var(--accent-blue)] transition-colors">
+                        {template.name}
+                    </h3>
 
                     {/* Description */}
-                    <p className="text-sm text-muted-foreground mb-6 line-clamp-2 leading-relaxed">
+                    <p className="text-[14px] text-[var(--mute)] mb-5 line-clamp-2 leading-relaxed">
                         {template.description}
                     </p>
 
                     {/* Color Palette + Tags */}
-                    <div className="mt-auto space-y-4">
+                    <div className="mt-auto space-y-3">
+                        {/* Color dots */}
                         <div className="flex gap-1.5">
                             {Object.values(template.colors).slice(0, 5).map((color, index) => (
                                 <div
                                     key={index}
-                                    className="w-5 h-5 rounded-full border-2 border-background ring-1 ring-border shadow-sm transition-transform hover:scale-125"
-                                    style={{ background: color }}
+                                    className="w-4 h-4 rounded-full transition-transform hover:scale-125"
+                                    style={{
+                                        background: color,
+                                        border: "1px solid var(--hairline-strong)",
+                                    }}
                                     title={color}
                                 />
                             ))}
                         </div>
 
+                        {/* Tags */}
                         <div className="flex flex-wrap gap-1.5">
                             {template.tags.slice(0, 3).map((tag) => (
                                 <span
                                     key={tag}
-                                    className="text-[10px] uppercase tracking-widest font-bold text-muted-foreground bg-muted/50 px-2 py-0.5 rounded"
+                                    className="text-[10px] uppercase tracking-widest font-medium px-2 py-0.5 rounded"
+                                    style={{
+                                        color: "var(--ash)",
+                                        backgroundColor: "var(--surface-elevated)",
+                                    }}
                                 >
                                     {tag}
                                 </span>
                             ))}
                         </div>
 
-                        {/* Quick Action Footer */}
-                        <div className="pt-4 border-t flex items-center justify-between text-xs font-semibold uppercase tracking-wider text-muted-foreground group-hover:text-primary transition-colors cursor-pointer group/footer">
-                            <Link href={`/templates/${template.slug}/preview`} className="flex items-center">
+                        {/* Footer Action */}
+                        <div
+                            className="pt-3 flex items-center justify-between text-[11px] font-medium uppercase tracking-wider text-[var(--mute)] group-hover:text-[var(--ink)] transition-colors"
+                            style={{ borderTop: "1px solid var(--hairline)" }}
+                        >
+                            <Link
+                                href={`/templates/${template.slug}/preview`}
+                                className="flex items-center group/footer"
+                            >
                                 View Full Showcase
-                                <ArrowRight className="ml-1.5 w-3.5 h-3.5 group-hover/footer:translate-x-1 transition-transform" />
+                                <ArrowRight className="ml-1.5 w-3 h-3 group-hover/footer:translate-x-0.5 transition-transform" />
                             </Link>
-                            <Download className="w-3.5 h-3.5 opacity-40" />
+                            <Download className="w-3 h-3 opacity-40" />
                         </div>
                     </div>
-                </CardContent>
-            </Card>
+                </div>
+            </div>
         </motion.div>
     );
 }

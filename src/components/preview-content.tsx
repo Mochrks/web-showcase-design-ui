@@ -36,7 +36,7 @@ export function PreviewContent({ template }: PreviewContentProps) {
                     <div className="flex items-center justify-between">
                         <div className="flex items-center space-x-4">
                             <Link href="/">
-                                <Button variant="ghost" size="sm">
+                                <Button variant="ghost" size="sm" className="cursor-pointer">
                                     <ArrowLeft className="w-4 h-4 mr-2" />
                                     Back
                                 </Button>
@@ -48,11 +48,11 @@ export function PreviewContent({ template }: PreviewContentProps) {
                         </div>
                         <div className="flex items-center space-x-2">
                             <Link href={`/templates/${template.slug}/design-system`}>
-                                <Button variant="outline">View Components</Button>
+                                <Button variant="outline" className="cursor-pointer">View Components</Button>
                             </Link>
                             <Button
-
                                 onClick={() => handleDownload("nextjs")}
+                                className="cursor-pointer"
                             >
                                 <Download className="w-4 h-4 mr-2" />
                                 Download
@@ -100,17 +100,17 @@ export function PreviewContent({ template }: PreviewContentProps) {
                                         <div className="flex gap-3">
                                             <Button
                                                 onClick={() => handleDownload("nextjs")}
-                                                className="flex-1 "
+                                                className="flex-1 cursor-pointer "
                                             >
-                                                <Download className="w-4 h-4 mr-2" />
+                                                <Download className="w-4 h-4 mr-2 " />
                                                 Next.js Version
                                             </Button>
                                             <Button
                                                 onClick={() => handleDownload("react")}
                                                 variant="outline"
-                                                className="flex-1"
+                                                className="flex-1 cursor-pointer"
                                             >
-                                                <Download className="w-4 h-4 mr-2" />
+                                                <Download className="w-4 h-4 mr-2 " />
                                                 React Version
                                             </Button>
                                         </div>

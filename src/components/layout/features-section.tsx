@@ -2,106 +2,137 @@
 
 import { motion } from "framer-motion";
 import { Palette, Download, Code, Zap, Layers, Sparkles } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
 
 const features = [
     {
         icon: Palette,
         title: "20 Unique Themes",
-        description: "From Neo Brutalism to Glassmorphism, explore diverse design styles",
-        gradient: "from-pink-500 to-rose-500",
+        description: "From Neo Brutalism to Glassmorphism, explore diverse design styles crafted for real products",
+        accentColor: "var(--accent-orange)",
     },
     {
         icon: Download,
         title: "Instant Download",
-        description: "Get complete boilerplate packages ready for Next.js or React",
-        gradient: "from-blue-500 to-cyan-500",
+        description: "Get complete boilerplate packages ready for Next.js or React — production-grade from day one",
+        accentColor: "var(--accent-blue)",
     },
     {
         icon: Code,
         title: "shadcn/ui Components",
-        description: "Built with the best component library for React applications",
-        gradient: "from-purple-500 to-indigo-500",
+        description: "Built with the best component library for React applications, fully typed and accessible",
+        accentColor: "var(--accent-green)",
     },
     {
         icon: Zap,
         title: "Production Ready",
-        description: "Clean code, TypeScript, and best practices out of the box",
-        gradient: "from-yellow-500 to-orange-500",
+        description: "Clean code, TypeScript, and best practices out of the box — deploy with confidence",
+        accentColor: "var(--accent-yellow)",
     },
     {
         icon: Layers,
         title: "Design System",
-        description: "Preview all components styled for each template theme",
-        gradient: "from-green-500 to-emerald-500",
+        description: "Preview all components styled for each template theme with full token documentation",
+        accentColor: "var(--accent-red)",
     },
     {
         icon: Sparkles,
         title: "Fully Customizable",
-        description: "Tailwind CSS configuration and theme tokens included",
-        gradient: "from-violet-500 to-purple-500",
+        description: "Tailwind CSS configuration and theme tokens included — make it yours in minutes",
+        accentColor: "var(--accent-blue)",
     },
 ];
 
 export function FeaturesSection() {
     return (
-        <section id="features" className="py-24 bg-muted/30">
-            <div className="container mx-auto px-4">
-                <div className="text-center mb-16">
+        <section id="features" className="relative py-24" style={{ backgroundColor: "var(--canvas)" }}>
+            {/* Atmospheric glow */}
+            <div
+                className="absolute top-0 left-0 right-0 h-[500px] pointer-events-none"
+                style={{
+                    background: "radial-gradient(ellipse at top center, var(--accent-green-glow) 0%, transparent 60%)",
+                }}
+            />
+
+            <div className="max-w-[1200px] mx-auto px-6 relative z-10">
+                {/* Section Header */}
+                <div className="text-center mb-20">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5 }}
                     >
-                        <h2 className="text-4xl md:text-5xl font-bold mb-4">
-                            Everything You Need to{" "}
-                            <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                                Start Building
-                            </span>
+                        <h2 className="text-display-xl text-[var(--ink)] mb-6">
+                            Everything you need
                         </h2>
-                        <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+                        <p className="text-subtitle text-[var(--body-text)] max-w-2xl mx-auto">
                             Professional UI templates with complete design systems, ready to download
                             and customize for your next project
                         </p>
                     </motion.div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {/* Feature Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     {features.map((feature, index) => (
                         <motion.div
                             key={feature.title}
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: index * 0.1 }}
+                            transition={{ duration: 0.5, delay: index * 0.08 }}
                         >
-                            <Card className="h-full border-2 hover:border-primary/50 transition-all duration-300 hover:shadow-lg group">
-                                <CardContent className="p-6">
-                                    <div
-                                        className={`w-12 h-12 rounded-lg bg-gradient-to-br ${feature.gradient} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}
-                                    >
-                                        <feature.icon className="w-6 h-6 text-white" />
-                                    </div>
-                                    <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
-                                    <p className="text-muted-foreground">{feature.description}</p>
-                                </CardContent>
-                            </Card>
+                            <div
+                                className="group h-full p-8 rounded-xl transition-all duration-300 hover:bg-[var(--surface-elevated)]"
+                                style={{
+                                    backgroundColor: "var(--surface-card)",
+                                    border: "1px solid var(--hairline-strong)",
+                                }}
+                            >
+                                {/* Icon */}
+                                <div
+                                    className="w-10 h-10 rounded-lg flex items-center justify-center mb-5 transition-transform duration-300 group-hover:scale-110"
+                                    style={{
+                                        backgroundColor: `color-mix(in srgb, ${feature.accentColor} 15%, transparent)`,
+                                    }}
+                                >
+                                    <feature.icon
+                                        className="w-5 h-5"
+                                        style={{ color: feature.accentColor }}
+                                    />
+                                </div>
+
+                                {/* Title */}
+                                <h3 className="text-heading-md text-[var(--ink)] mb-2">
+                                    {feature.title}
+                                </h3>
+
+                                {/* Description */}
+                                <p className="text-[16px] leading-[1.5] text-[var(--body-text)]" style={{ letterSpacing: "-0.8px" }}>
+                                    {feature.description}
+                                </p>
+                            </div>
                         </motion.div>
                     ))}
                 </div>
 
-                {/* Additional Info */}
+                {/* Bottom Info Pill */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.6 }}
+                    transition={{ duration: 0.5, delay: 0.5 }}
                     className="mt-16 text-center"
                 >
-                    <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-primary/10 to-accent/10 border border-primary/20 rounded-full px-6 py-3">
-                        <Sparkles className="w-5 h-5 text-primary" />
-                        <span className="font-medium">
+                    <div
+                        className="inline-flex items-center gap-2 rounded-full px-5 py-2"
+                        style={{
+                            backgroundColor: "var(--surface-elevated)",
+                            border: "1px solid var(--hairline-strong)",
+                        }}
+                    >
+                        <Sparkles className="w-4 h-4 text-[var(--accent-yellow)]" />
+                        <span className="text-[14px] font-medium text-[var(--body-text)] tracking-[0.35px]">
                             All templates include Tailwind CSS config, color palettes, and component examples
                         </span>
                     </div>

@@ -1,55 +1,97 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { BackgroundRippleEffect } from "@/components/ui/background-ripple-effect";
-import { ArrowRight, Sparkles, Download } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
-
+import ColorBends from "../ColorBends";
 
 export function HeroSection() {
     return (
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
-            <BackgroundRippleEffect />
-            {/* ═══ Hero Content ═══ */}
-            <div className="container mx-auto px-4 relative z-10 pointer-events-none">
-                <div className="max-w-5xl mx-auto text-center pointer-events-auto">
+        <section
+            className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16"
+            style={{ backgroundColor: "var(--canvas)" }}
+        >
+            {/* ═══ ColorBends Background ═══ */}
+            <div className="absolute inset-0 z-0 pointer-events-none">
+                <ColorBends
+                    rotation={90}
+                    speed={0.2}
+                    colors={["#06B6D4"]}
+                    transparent
+                    autoRotate={0}
+                    scale={1}
+                    frequency={1}
+                    warpStrength={1}
+                    mouseInfluence={1}
+                    parallax={0.5}
+                    noise={0.15}
+                    iterations={1}
+                    intensity={1.5}
+                    bandWidth={6}
+                    style={{ width: "100%", height: "100%" }}
+                />
+            </div>
 
-                    {/* Badge */}
+            {/* ═══ Atmospheric Glow — subtle blue-orange wash ═══ */}
+            <div className="absolute inset-0 pointer-events-none">
+                <div
+                    className="absolute top-0 left-1/2 -translate-x-1/2 w-[120%] h-[600px] animate-pulse-glow"
+                    style={{
+                        background: "radial-gradient(ellipse at 40% 0%, rgba(0,117,255,0.12) 0%, transparent 50%), radial-gradient(ellipse at 60% 0%, rgba(255,89,0,0.08) 0%, transparent 50%)",
+                    }}
+                />
+            </div>
+
+            {/* ═══ Grid Pattern ═══ */}
+            <div
+                className="absolute inset-0 bg-grid-editorial opacity-30 pointer-events-none"
+                style={{
+                    WebkitMaskImage: "radial-gradient(ellipse at center, black 30%, transparent 75%)",
+                    maskImage: "radial-gradient(ellipse at center, black 30%, transparent 75%)",
+                }}
+            />
+
+            {/* ═══ Hero Content ═══ */}
+            <div className="max-w-[1200px] mx-auto px-6 relative z-10">
+                <div className="max-w-4xl mx-auto text-center">
+                    {/* Badge Pill */}
                     <motion.div
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={{ opacity: 0, y: 16 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5 }}
-                        className="inline-flex items-center space-x-2 bg-background/60 border border-border/60 rounded-full px-4 py-2 mb-8 backdrop-blur-md"
+                        className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-10"
+                        style={{
+                            backgroundColor: "var(--surface-elevated)",
+                            border: "1px solid var(--hairline-strong)",
+                        }}
                     >
-                        <Sparkles className="w-4 h-4 text-foreground" />
-                        <span className="text-sm font-medium">40+ Premium UI Templates</span>
+                        <span className="w-2 h-2 rounded-full bg-[var(--accent-green)] animate-pulse" />
+                        <span className="text-[12px] font-medium text-[var(--body-text)] tracking-wide">
+                            40+ Premium UI Templates
+                        </span>
                     </motion.div>
 
-                    {/* Main Heading */}
+                    {/* Main Headline — Serif Display */}
                     <motion.h1
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={{ opacity: 0, y: 24 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: 0.1 }}
-                        className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight px-4"
+                        transition={{ duration: 0.6, delay: 0.1 }}
+                        className="text-display-xxl text-[var(--ink)] mb-6"
                     >
-                        Experience Next-Gen{" "}
-                        <span className="text-muted-foreground">
-                            UI Design
-                        </span>
-                        <br />
-                        Crafted for Modern Apps
+                        UI Design for{" "}
+                        <br className="hidden sm:block" />
+                        <span className="text-[var(--ink)]">Modern Builders</span>
                     </motion.h1>
 
-                    {/* Description */}
+                    {/* Subtitle — Body text */}
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.2 }}
-                        className="text-base sm:text-lg md:text-xl text-muted-foreground mb-12 max-w-3xl mx-auto px-4"
+                        className="text-subtitle text-[var(--body-text)] mb-12 max-w-2xl mx-auto leading-relaxed"
                     >
                         Explore 40+ meticulously designed UI templates. From Neo-Brutalism to
-                        Japanese Zen, discover diverse design systems and download high-performance
-                        boilerplates for Next.js and React.
+                        Japanese Zen — diverse design systems with download-ready boilerplates
+                        for Next.js and React.
                     </motion.p>
 
                     {/* CTA Buttons */}
@@ -57,41 +99,31 @@ export function HeroSection() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.3 }}
-                        className="flex flex-col sm:flex-row items-center justify-center gap-4 px-4"
+                        className="flex flex-col sm:flex-row items-center justify-center gap-3"
                     >
-                        <Button
-                            size="lg"
-                            className="w-full sm:w-auto px-6 sm:px-8 py-5 sm:py-6 text-base sm:text-lg group shadow-xl"
+                        {/* Primary — White pill */}
+                        <button
+                            className="inline-flex items-center justify-center cursor-pointer h-10 px-6 rounded-lg text-[14px] font-medium transition-all duration-200 bg-[var(--ink)] text-[var(--canvas)] hover:opacity-80 active:scale-[0.98] group"
                             onClick={() => {
                                 document.getElementById("templates")?.scrollIntoView({ behavior: "smooth" });
                             }}
                         >
                             Explore Collection
-                            <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
-                        </Button>
-                        <Button
-                            size="lg"
-                            variant="outline"
-                            className="w-full sm:w-auto px-6 sm:px-8 py-5 sm:py-6 text-base sm:text-lg border-2 shadow-sm backdrop-blur-sm"
-                            onClick={() => {
-                                document.getElementById("templates")?.scrollIntoView({ behavior: "smooth" });
-                            }}
-                        >
-                            <Download className="mr-2 w-4 h-4 sm:w-5 sm:h-5" />
-                            Get Started
-                        </Button>
+                            <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+                        </button>
+
                     </motion.div>
 
-                    {/* Stats */}
+                    {/* Stats Row */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: 0.4 }}
-                        className="grid grid-cols-3 gap-4 sm:gap-8 mt-12 sm:mt-16 max-w-2xl mx-auto px-4"
+                        transition={{ duration: 0.5, delay: 0.45 }}
+                        className="flex items-center justify-center gap-12 mt-16"
                     >
                         {[
-                            { value: "40+", label: "Ready Templates" },
-                            { value: "2", label: "Core Frameworks" },
+                            { value: "40+", label: "Templates" },
+                            { value: "2", label: "Frameworks" },
                             { value: "60+", label: "Components" },
                         ].map((stat, i) => (
                             <motion.div
@@ -99,12 +131,10 @@ export function HeroSection() {
                                 className="text-center"
                                 initial={{ opacity: 0, y: 10 }}
                                 animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.4, delay: 0.5 + i * 0.1 }}
+                                transition={{ duration: 0.4, delay: 0.55 + i * 0.08 }}
                             >
-                                <div className="text-3xl sm:text-4xl md:text-5xl font-bold">
-                                    {stat.value}
-                                </div>
-                                <div className="text-xs sm:text-sm text-muted-foreground mt-1">
+                                <div className="text-display-lg text-[var(--ink)]">{stat.value}</div>
+                                <div className="text-[14px] text-[var(--mute)] mt-1 font-medium tracking-wide">
                                     {stat.label}
                                 </div>
                             </motion.div>
@@ -116,11 +146,14 @@ export function HeroSection() {
             {/* Scroll Indicator */}
             <motion.div
                 className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
-                animate={{ y: [0, 10, 0] }}
-                transition={{ duration: 2, repeat: Infinity }}
+                animate={{ y: [0, 8, 0] }}
+                transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
             >
-                <div className="w-6 h-10 border-2 border-foreground/20 rounded-full flex items-start justify-center p-2">
-                    <div className="w-1 h-2 bg-foreground/40 rounded-full" />
+                <div
+                    className="w-5 h-8 rounded-full flex items-start justify-center p-1.5"
+                    style={{ border: "1px solid var(--hairline-strong)" }}
+                >
+                    <div className="w-1 h-1.5 rounded-full bg-[var(--mute)]" />
                 </div>
             </motion.div>
         </section>
