@@ -24,14 +24,6 @@ export function TemplateGrid() {
 
     return (
         <section id="templates" className="relative py-24" style={{ backgroundColor: "var(--canvas)" }}>
-            {/* Atmospheric glow */}
-            <div
-                className="absolute top-0 left-0 right-0 h-[500px] pointer-events-none"
-                style={{
-                    background: "radial-gradient(ellipse at top center, var(--accent-orange-glow) 0%, transparent 60%)",
-                }}
-            />
-
             <div className="max-w-[1200px] mx-auto px-6 relative z-10">
                 {/* Header */}
                 <div className="text-center mb-12">
