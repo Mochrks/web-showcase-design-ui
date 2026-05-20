@@ -2679,7 +2679,7 @@ function TechDashboardPreview() {
                             ].map((mod, i) => (
                                 <div key={i} className="flex items-center justify-between p-3 bg-[#0F172A] rounded border border-slate-700">
                                     <span className="text-xs font-bold text-slate-300">{mod.name}</span>
-                                    <Badge size="sm" className={mod.active ? "bg-indigo-500/20 text-indigo-300 border-indigo-500/30" : "bg-slate-800 text-slate-500"}>
+                                    <Badge className={mod.active ? "bg-indigo-500/20 text-indigo-300 border-indigo-500/30" : "bg-slate-800 text-slate-500"}>
                                         {mod.active ? "READY" : "INERT"}
                                     </Badge>
                                 </div>
